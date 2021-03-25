@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA03D260D14C8004A209C /* AppDelegate.swift */; };
 		925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA03F260D14C8004A209C /* SceneDelegate.swift */; };
-		925FA042260D14C8004A209C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA041260D14C8004A209C /* ViewController.swift */; };
 		925FA045260D14C8004A209C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925FA043260D14C8004A209C /* Main.storyboard */; };
 		925FA048260D14C8004A209C /* Twig.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 925FA046260D14C8004A209C /* Twig.xcdatamodeld */; };
 		925FA04A260D14C9004A209C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925FA049260D14C9004A209C /* Assets.xcassets */; };
 		925FA04D260D14C9004A209C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925FA04B260D14C9004A209C /* LaunchScreen.storyboard */; };
+		925FA056260D16E6004A209C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA055260D16E6004A209C /* HomeViewController.swift */; };
+		925FA05A260D1831004A209C /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA059260D1831004A209C /* TasksViewController.swift */; };
+		925FA05D260D1876004A209C /* EncyclopediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA05C260D1876004A209C /* EncyclopediaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		925FA03A260D14C8004A209C /* Twig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925FA03D260D14C8004A209C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925FA03F260D14C8004A209C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		925FA041260D14C8004A209C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		925FA044260D14C8004A209C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		925FA047260D14C8004A209C /* Twig.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twig.xcdatamodel; sourceTree = "<group>"; };
 		925FA049260D14C9004A209C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925FA04C260D14C9004A209C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925FA04E260D14C9004A209C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		925FA055260D16E6004A209C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		925FA059260D1831004A209C /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		925FA05C260D1876004A209C /* EncyclopediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncyclopediaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 			children = (
 				925FA03D260D14C8004A209C /* AppDelegate.swift */,
 				925FA03F260D14C8004A209C /* SceneDelegate.swift */,
-				925FA041260D14C8004A209C /* ViewController.swift */,
 				925FA043260D14C8004A209C /* Main.storyboard */,
 				925FA049260D14C9004A209C /* Assets.xcassets */,
 				925FA04B260D14C9004A209C /* LaunchScreen.storyboard */,
 				925FA04E260D14C9004A209C /* Info.plist */,
 				925FA046260D14C8004A209C /* Twig.xcdatamodeld */,
+				925FA055260D16E6004A209C /* HomeViewController.swift */,
+				925FA059260D1831004A209C /* TasksViewController.swift */,
+				925FA05C260D1876004A209C /* EncyclopediaViewController.swift */,
 			);
 			path = Twig;
 			sourceTree = "<group>";
@@ -140,8 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925FA056260D16E6004A209C /* HomeViewController.swift in Sources */,
 				925FA048260D14C8004A209C /* Twig.xcdatamodeld in Sources */,
-				925FA042260D14C8004A209C /* ViewController.swift in Sources */,
+				925FA05D260D1876004A209C /* EncyclopediaViewController.swift in Sources */,
+				925FA05A260D1831004A209C /* TasksViewController.swift in Sources */,
 				925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */,
 				925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */,
 			);
