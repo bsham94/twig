@@ -61,41 +61,49 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReuseIdentifier" id="8NG-fK-d5i" customClass="RoomCollectionViewCell" customModule="Twig" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoomIdentifier" id="8NG-fK-d5i" customClass="RoomCollectionViewCell" customModule="Twig" customModuleProvider="target">
+                                        <rect key="frame" x="84.5" y="0.0" width="195.5" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G5Z-7q-jzz">
-                                            <rect key="frame" x="0.0" y="0.0" width="119.5" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="195.5" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dzv-j6-fvJ">
-                                                    <rect key="frame" x="10" y="10.5" width="35" height="35"/>
-                                                    <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="1X6-MB-9A4"/>
-                                                        <constraint firstAttribute="width" constant="35" id="dEZ-DY-miw"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Room" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpe-x8-Q2F">
-                                                    <rect key="frame" x="10" y="91.5" width="99.5" height="26.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-9U-sDr">
+                                                    <rect key="frame" x="8" y="8" width="179.5" height="41"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Plants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIL-9K-oQA">
+                                                    <rect key="frame" x="8" y="99" width="93" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JIx-ge-2e2">
+                                                    <rect key="frame" x="162.5" y="97.5" width="25" height="20"/>
+                                                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="LnU-OZ-67u"/>
+                                                        <constraint firstAttribute="width" constant="25" id="uWU-Ia-aaN"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dpe-x8-Q2F" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Dzv-j6-fvJ" secondAttribute="bottom" constant="10" id="42d-Ih-Ide"/>
-                                                <constraint firstItem="dpe-x8-Q2F" firstAttribute="leading" secondItem="G5Z-7q-jzz" secondAttribute="leading" constant="10" id="IUz-Qn-3Yp"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dpe-x8-Q2F" secondAttribute="trailing" constant="10" id="Klh-N6-V1l"/>
-                                                <constraint firstAttribute="bottom" secondItem="dpe-x8-Q2F" secondAttribute="bottom" constant="10" id="aKF-sG-LsE"/>
-                                                <constraint firstItem="dpe-x8-Q2F" firstAttribute="centerX" secondItem="G5Z-7q-jzz" secondAttribute="centerX" id="anN-Xv-wK2"/>
-                                                <constraint firstItem="Dzv-j6-fvJ" firstAttribute="leading" secondItem="G5Z-7q-jzz" secondAttribute="leading" constant="10" id="frj-zo-1oD"/>
-                                                <constraint firstItem="Dzv-j6-fvJ" firstAttribute="top" secondItem="G5Z-7q-jzz" secondAttribute="top" constant="10" id="p49-Yv-gIr"/>
+                                                <constraint firstItem="xIL-9K-oQA" firstAttribute="leading" secondItem="G5Z-7q-jzz" secondAttribute="leading" constant="8" id="Dxj-gB-wGZ"/>
+                                                <constraint firstItem="JIx-ge-2e2" firstAttribute="top" secondItem="AfS-9U-sDr" secondAttribute="bottom" constant="46" id="I4r-dX-MpR"/>
+                                                <constraint firstItem="JIx-ge-2e2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xIL-9K-oQA" secondAttribute="trailing" constant="61.5" id="LYZ-P6-YrR"/>
+                                                <constraint firstAttribute="trailing" secondItem="JIx-ge-2e2" secondAttribute="trailing" constant="8" id="N8o-o9-IB3"/>
+                                                <constraint firstItem="xIL-9K-oQA" firstAttribute="top" secondItem="AfS-9U-sDr" secondAttribute="bottom" constant="50" id="OXc-bx-FuE"/>
+                                                <constraint firstItem="AfS-9U-sDr" firstAttribute="top" secondItem="G5Z-7q-jzz" secondAttribute="top" constant="8" id="Rbg-tN-XIq"/>
+                                                <constraint firstItem="AfS-9U-sDr" firstAttribute="leading" secondItem="G5Z-7q-jzz" secondAttribute="leading" constant="8" id="VcT-OT-IbY"/>
+                                                <constraint firstAttribute="bottom" secondItem="xIL-9K-oQA" secondAttribute="bottom" constant="8" id="f0U-iO-Cs1"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AfS-9U-sDr" secondAttribute="trailing" constant="8" id="yZd-2N-ZPI"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="TwigAccent"/>
                                         <connections>
-                                            <outlet property="titleLabel" destination="dpe-x8-Q2F" id="MxK-wf-NND"/>
+                                            <outlet property="titleLabel" destination="AfS-9U-sDr" id="xGE-5u-0aG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -111,9 +119,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                            <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
+                                            <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="5"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="88"/>
                                             <state key="normal" title="Add Room">
                                                 <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                 <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
@@ -197,6 +205,7 @@
     </scenes>
     <resources>
         <image name="Twig_Logo" width="420" height="298"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.number" catalog="system" width="128" height="97"/>

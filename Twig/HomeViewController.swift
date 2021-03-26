@@ -7,11 +7,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     // MARK: Properties
-    private let reuseIdentifier = "ReuseIdentifier"
+    private let roomIdentifier = "RoomIdentifier"
     private let footerIdentifier = "FooterIdentifier"
+    let exampleRooms = [
+        "Bedroom",
+        "Living Room"
+    ]
     
     // MARK: Outlets
     @IBOutlet weak var quickAddButton: UIButton!
@@ -35,20 +39,32 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
+        return exampleRooms.count
+    } // numberofItemsInSection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! RoomCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roomIdentifier, for: indexPath as IndexPath) as! RoomCollectionViewCell
         
-        cell.titleLabel.text = "Add Room"
+        cell.titleLabel.text = exampleRooms[indexPath.row]
         return cell
-    }
+    } // cellForItemAt
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // Use custom footer for collectionView
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! AddRoomCollectionReusableView
         return footer
+    } // viewForSupplementaryElementOfKind
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize = CGSize(
+            // Cells are 83% of the screen width to align
+            // with the footer button below them
+            width: (self.view.frame.size.width * 0.83),
+            // Height will be ignored at runtime
+            height: 1
+        )
+        return cellSize
     }
+    
 
 }

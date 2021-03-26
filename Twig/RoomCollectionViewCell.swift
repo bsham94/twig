@@ -11,6 +11,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     override func layoutSubviews() {
+        // Override design
         self.layer.cornerRadius = 15.0
         self.layer.borderWidth = 5.0
         self.layer.borderColor = UIColor.clear.cgColor
