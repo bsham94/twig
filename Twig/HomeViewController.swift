@@ -57,9 +57,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize = CGSize(
-            // Cells are 83% of the screen width to align
-            // with the footer button below them
-            width: (self.view.frame.size.width * 0.83),
+            // Cells are 80% of the screen width
+            width: (self.view.frame.size.width * 0.80),
             // Height will be ignored at runtime
             height: 1
         )
