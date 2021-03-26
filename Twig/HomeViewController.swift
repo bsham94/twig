@@ -11,6 +11,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     // MARK: Properties
     private let reuseIdentifier = "ReuseIdentifier"
+    private let footerIdentifier = "FooterIdentifier"
     
     // MARK: Outlets
     @IBOutlet weak var quickAddButton: UIButton!
@@ -42,6 +43,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         cell.titleLabel.text = "Add Room"
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        // Use custom footer for collectionView
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! AddRoomCollectionReusableView
+        return footer
     }
 
 }

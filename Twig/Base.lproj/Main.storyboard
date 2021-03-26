@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -56,7 +57,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6YX-eh-GvN">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="156" height="140"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -98,6 +99,36 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FooterIdentifier" id="7Oi-PL-sRP" customClass="AddRoomCollectionReusableView" customModule="Twig" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="128" width="364" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NVj-UF-i5K">
+                                            <rect key="frame" x="8" y="8" width="148" height="120"/>
+                                            <color key="backgroundColor" name="TwigAccent"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="iKG-PI-MAo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                            <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
+                                            <state key="normal" title="Add Room">
+                                                <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="NVj-UF-i5K" secondAttribute="trailing" constant="200" id="IRn-W8-c8X"/>
+                                        <constraint firstItem="NVj-UF-i5K" firstAttribute="leading" secondItem="7Oi-PL-sRP" secondAttribute="leadingMargin" id="axa-L7-A9Q"/>
+                                        <constraint firstItem="NVj-UF-i5K" firstAttribute="top" secondItem="7Oi-PL-sRP" secondAttribute="topMargin" id="j55-h4-SJi"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="addRoomButton" destination="NVj-UF-i5K" id="1BU-t1-Wmp"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="vmK-57-GfH" id="szf-t7-IBE"/>
                                     <outlet property="delegate" destination="vmK-57-GfH" id="X1P-Yh-iCh"/>

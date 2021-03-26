@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		922ADEF4260E57A7003B04D0 /* AddRoomCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */; };
 		925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA03D260D14C8004A209C /* AppDelegate.swift */; };
 		925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA03F260D14C8004A209C /* SceneDelegate.swift */; };
 		925FA045260D14C8004A209C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925FA043260D14C8004A209C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomCollectionReusableView.swift; sourceTree = "<group>"; };
 		925FA03A260D14C8004A209C /* Twig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925FA03D260D14C8004A209C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925FA03F260D14C8004A209C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				925FA059260D1831004A209C /* TasksViewController.swift */,
 				925FA05C260D1876004A209C /* EncyclopediaViewController.swift */,
 				92BA8396260D664B0037FF80 /* RoomCollectionViewCell.swift */,
+				922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */,
 			);
 			path = Twig;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				925FA05A260D1831004A209C /* TasksViewController.swift in Sources */,
 				92BA8397260D664B0037FF80 /* RoomCollectionViewCell.swift in Sources */,
 				925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */,
+				922ADEF4260E57A7003B04D0 /* AddRoomCollectionReusableView.swift in Sources */,
 				925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
