@@ -3,8 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,14 +33,99 @@
                     <view key="view" contentMode="scaleToFill" id="JcX-Fb-KYc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twig_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-Im-TCa">
+                                <rect key="frame" x="25" y="69" width="80" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8Kh-kR-Xxt"/>
+                                    <constraint firstAttribute="width" constant="80" id="uju-D3-O9x"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-C0-BZ7">
+                                <rect key="frame" x="354" y="79.5" width="35" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="HOd-e3-sEy"/>
+                                    <constraint firstAttribute="width" constant="35" id="lv1-qb-utB"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-Xw-baX">
+                                <rect key="frame" x="25" y="144" width="364" height="644"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6YX-eh-GvN">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReuseIdentifier" id="8NG-fK-d5i" customClass="RoomCollectionViewCell" customModule="Twig" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G5Z-7q-jzz">
+                                            <rect key="frame" x="0.0" y="0.0" width="119.5" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dzv-j6-fvJ">
+                                                    <rect key="frame" x="10" y="10.5" width="35" height="35"/>
+                                                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="1X6-MB-9A4"/>
+                                                        <constraint firstAttribute="width" constant="35" id="dEZ-DY-miw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Room" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpe-x8-Q2F">
+                                                    <rect key="frame" x="10" y="91.5" width="99.5" height="26.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dpe-x8-Q2F" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Dzv-j6-fvJ" secondAttribute="bottom" constant="10" id="42d-Ih-Ide"/>
+                                                <constraint firstItem="dpe-x8-Q2F" firstAttribute="leading" secondItem="G5Z-7q-jzz" secondAttribute="leading" constant="10" id="IUz-Qn-3Yp"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dpe-x8-Q2F" secondAttribute="trailing" constant="10" id="Klh-N6-V1l"/>
+                                                <constraint firstAttribute="bottom" secondItem="dpe-x8-Q2F" secondAttribute="bottom" constant="10" id="aKF-sG-LsE"/>
+                                                <constraint firstItem="dpe-x8-Q2F" firstAttribute="centerX" secondItem="G5Z-7q-jzz" secondAttribute="centerX" id="anN-Xv-wK2"/>
+                                                <constraint firstItem="Dzv-j6-fvJ" firstAttribute="leading" secondItem="G5Z-7q-jzz" secondAttribute="leading" constant="10" id="frj-zo-1oD"/>
+                                                <constraint firstItem="Dzv-j6-fvJ" firstAttribute="top" secondItem="G5Z-7q-jzz" secondAttribute="top" constant="10" id="p49-Yv-gIr"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="TwigAccent"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="dpe-x8-Q2F" id="MxK-wf-NND"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vmK-57-GfH" id="szf-t7-IBE"/>
+                                    <outlet property="delegate" destination="vmK-57-GfH" id="X1P-Yh-iCh"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="GYI-Ci-7jd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GYI-Ci-7jd" firstAttribute="trailing" secondItem="IP9-C0-BZ7" secondAttribute="trailing" constant="25" id="5z4-Ft-nFX"/>
+                            <constraint firstItem="XCM-Im-TCa" firstAttribute="top" secondItem="GYI-Ci-7jd" secondAttribute="top" constant="25" id="Jbw-lF-grW"/>
+                            <constraint firstItem="IP9-C0-BZ7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XCM-Im-TCa" secondAttribute="trailing" constant="50" id="VEp-N7-Nhd"/>
+                            <constraint firstItem="XCM-Im-TCa" firstAttribute="leading" secondItem="GYI-Ci-7jd" secondAttribute="leading" constant="25" id="bBT-gj-a8P"/>
+                            <constraint firstItem="IP9-C0-BZ7" firstAttribute="top" secondItem="GYI-Ci-7jd" secondAttribute="top" constant="35" id="hcc-Sc-2kY"/>
+                            <constraint firstItem="AnD-Xw-baX" firstAttribute="leading" secondItem="GYI-Ci-7jd" secondAttribute="leading" constant="25" id="jGU-JX-zg9"/>
+                            <constraint firstItem="GYI-Ci-7jd" firstAttribute="trailing" secondItem="AnD-Xw-baX" secondAttribute="trailing" constant="25" id="ndF-Fz-3Lt"/>
+                            <constraint firstItem="GYI-Ci-7jd" firstAttribute="bottom" secondItem="AnD-Xw-baX" secondAttribute="bottom" constant="25" id="tTn-5d-v9h"/>
+                            <constraint firstItem="AnD-Xw-baX" firstAttribute="top" secondItem="XCM-Im-TCa" secondAttribute="bottom" constant="25" id="wQh-T8-1fK"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="Z0b-uz-mmd"/>
+                    <connections>
+                        <outlet property="quickAddButton" destination="IP9-C0-BZ7" id="rdw-nU-Fvf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUE-1L-MRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="296" y="-281"/>
+            <point key="canvasLocation" x="295.6521739130435" y="-281.25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Deh-bh-vh6">
@@ -48,6 +135,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="TwigAccent"/>
                     </tabBar>
                     <connections>
                         <segue destination="vmK-57-GfH" kind="relationship" relationship="viewControllers" id="0pJ-aG-21k"/>
@@ -77,9 +165,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Twig_Logo" width="420" height="298"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.number" catalog="system" width="128" height="97"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="TwigAccent">
+            <color red="0.30196078431372547" green="0.71372549019607845" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

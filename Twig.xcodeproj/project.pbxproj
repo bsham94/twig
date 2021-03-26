@@ -16,6 +16,7 @@
 		925FA056260D16E6004A209C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA055260D16E6004A209C /* HomeViewController.swift */; };
 		925FA05A260D1831004A209C /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA059260D1831004A209C /* TasksViewController.swift */; };
 		925FA05D260D1876004A209C /* EncyclopediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA05C260D1876004A209C /* EncyclopediaViewController.swift */; };
+		92BA8397260D664B0037FF80 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BA8396260D664B0037FF80 /* RoomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		925FA055260D16E6004A209C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		925FA059260D1831004A209C /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		925FA05C260D1876004A209C /* EncyclopediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncyclopediaViewController.swift; sourceTree = "<group>"; };
+		92BA8396260D664B0037FF80 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				925FA055260D16E6004A209C /* HomeViewController.swift */,
 				925FA059260D1831004A209C /* TasksViewController.swift */,
 				925FA05C260D1876004A209C /* EncyclopediaViewController.swift */,
+				92BA8396260D664B0037FF80 /* RoomCollectionViewCell.swift */,
 			);
 			path = Twig;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				925FA048260D14C8004A209C /* Twig.xcdatamodeld in Sources */,
 				925FA05D260D1876004A209C /* EncyclopediaViewController.swift in Sources */,
 				925FA05A260D1831004A209C /* TasksViewController.swift in Sources */,
+				92BA8397260D664B0037FF80 /* RoomCollectionViewCell.swift in Sources */,
 				925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */,
 				925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */,
 			);
