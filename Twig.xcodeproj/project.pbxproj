@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		922ADEF4260E57A7003B04D0 /* AddRoomCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */; };
+		922ADEFA260E701D003B04D0 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922ADEF9260E701D003B04D0 /* RoomViewController.swift */; };
+		925E0E7A260F9ADB00B996C5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E0E79260F9ADB00B996C5 /* Room.swift */; };
 		925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA03D260D14C8004A209C /* AppDelegate.swift */; };
 		925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA03F260D14C8004A209C /* SceneDelegate.swift */; };
 		925FA045260D14C8004A209C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925FA043260D14C8004A209C /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomCollectionReusableView.swift; sourceTree = "<group>"; };
+		922ADEF9260E701D003B04D0 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		925E0E79260F9ADB00B996C5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		925FA03A260D14C8004A209C /* Twig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925FA03D260D14C8004A209C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925FA03F260D14C8004A209C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		925FA03C260D14C8004A209C /* Twig */ = {
 			isa = PBXGroup;
 			children = (
+				922ADEF9260E701D003B04D0 /* RoomViewController.swift */,
 				925FA03D260D14C8004A209C /* AppDelegate.swift */,
 				925FA03F260D14C8004A209C /* SceneDelegate.swift */,
 				925FA043260D14C8004A209C /* Main.storyboard */,
@@ -78,6 +83,7 @@
 				925FA05C260D1876004A209C /* EncyclopediaViewController.swift */,
 				92BA8396260D664B0037FF80 /* RoomCollectionViewCell.swift */,
 				922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */,
+				925E0E79260F9ADB00B996C5 /* Room.swift */,
 			);
 			path = Twig;
 			sourceTree = "<group>";
@@ -156,8 +162,10 @@
 				925FA048260D14C8004A209C /* Twig.xcdatamodeld in Sources */,
 				925FA05D260D1876004A209C /* EncyclopediaViewController.swift in Sources */,
 				925FA05A260D1831004A209C /* TasksViewController.swift in Sources */,
+				925E0E7A260F9ADB00B996C5 /* Room.swift in Sources */,
 				92BA8397260D664B0037FF80 /* RoomCollectionViewCell.swift in Sources */,
 				925FA03E260D14C8004A209C /* AppDelegate.swift in Sources */,
+				922ADEFA260E701D003B04D0 /* RoomViewController.swift in Sources */,
 				922ADEF4260E57A7003B04D0 /* AddRoomCollectionReusableView.swift in Sources */,
 				925FA040260D14C8004A209C /* SceneDelegate.swift in Sources */,
 			);
