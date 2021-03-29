@@ -38,9 +38,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // TODO: Remove hardcoded plants
         examplePlants.append(Plant("Jade Plant"))
-        examplePlants.append(Plant("Aloe Vera"))
-        print("hello")
-        
+        examplePlants.append(Plant("Aloe Vera"))        
     } // viewDidLoad
     
     // MARK: Mutators

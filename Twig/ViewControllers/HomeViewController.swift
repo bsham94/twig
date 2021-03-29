@@ -104,6 +104,5 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.deselectItem(at: indexPath, animated: true)
         let room = exampleRooms[indexPath.row]
         performSegue(withIdentifier: detailsIdentifier, sender: room)
-        print(room.getName())
     } // didSelectItemAt
 }
