@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="woa-Od-cil">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -16,7 +16,7 @@
             <objects>
                 <viewController id="iyu-9h-LYu" customClass="TasksViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I1A-Ax-ejw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="nfH-Xd-1dW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -32,18 +32,18 @@
             <objects>
                 <viewController id="vmK-57-GfH" customClass="HomeViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JcX-Fb-KYc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twig_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-Im-TCa">
-                                <rect key="frame" x="25" y="121" width="80" height="50"/>
+                                <rect key="frame" x="25" y="165" width="80" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Kh-kR-Xxt"/>
                                     <constraint firstAttribute="width" constant="80" id="uju-D3-O9x"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-C0-BZ7">
-                                <rect key="frame" x="260" y="131.5" width="35" height="34"/>
+                                <rect key="frame" x="354" y="175.5" width="35" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="HOd-e3-sEy"/>
                                     <constraint firstAttribute="width" constant="35" id="lv1-qb-utB"/>
@@ -52,7 +52,7 @@
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-Xw-baX">
-                                <rect key="frame" x="25" y="196" width="270" height="235"/>
+                                <rect key="frame" x="25" y="240" width="364" height="573"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6YX-eh-GvN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -62,7 +62,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoomIdentifier" id="8NG-fK-d5i" customClass="RoomCollectionViewCell" customModule="Twig" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="0.0" width="195.5" height="128"/>
+                                        <rect key="frame" x="84.5" y="0.0" width="195.5" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G5Z-7q-jzz">
                                             <rect key="frame" x="0.0" y="0.0" width="195.5" height="128"/>
@@ -108,11 +108,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FooterIdentifier" id="7Oi-PL-sRP" customClass="AddRoomCollectionReusableView" customModule="Twig" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="128" width="270" height="115"/>
+                                    <rect key="frame" x="0.0" y="128" width="364" height="115"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NVj-UF-i5K">
-                                            <rect key="frame" x="-1" y="10" width="133" height="100"/>
+                                            <rect key="frame" x="12" y="10" width="214" height="100"/>
                                             <color key="backgroundColor" name="TwigAccent"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="iKG-PI-MAo"/>
@@ -203,7 +203,7 @@
             <objects>
                 <viewController id="b4V-tm-2po" customClass="EncyclopediaViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rMC-Kh-acI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="5Te-Tg-JYf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -219,16 +219,16 @@
             <objects>
                 <viewController id="Oyd-HX-kF7" customClass="RoomViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tjd-ek-lbd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Efk-2m-AbX">
-                                <rect key="frame" x="25" y="96" width="270" height="335"/>
+                                <rect key="frame" x="25" y="140" width="364" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hio-vH-8nX">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="130"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -239,10 +239,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Name" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcC-fl-u4I">
-                                                    <rect key="frame" x="8" y="66" width="110" height="54"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcC-fl-u4I">
+                                                    <rect key="frame" x="8" y="93" width="110" height="27"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="54" id="Wpt-fr-yFZ"/>
+                                                        <constraint firstAttribute="height" constant="27" id="Wpt-fr-yFZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -273,6 +273,36 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PlantFooterIdentifier" id="HbM-iX-Eb4" customClass="AddPlantCollectionReusableView" customModule="Twig" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="128" width="364" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTG-ji-rD3">
+                                            <rect key="frame" x="0.0" y="20" width="155" height="105"/>
+                                            <color key="backgroundColor" name="TwigAccent"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="PjD-tw-ptv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                            <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="5"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="75"/>
+                                            <state key="normal" title="Add Plant">
+                                                <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iTG-ji-rD3" firstAttribute="top" relation="lessThanOrEqual" secondItem="HbM-iX-Eb4" secondAttribute="top" constant="20" id="8t0-rf-uKd"/>
+                                        <constraint firstAttribute="bottom" secondItem="iTG-ji-rD3" secondAttribute="bottom" constant="5" id="dqR-7z-jQL"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iTG-ji-rD3" secondAttribute="trailing" constant="130" id="ngh-s8-4re"/>
+                                        <constraint firstItem="iTG-ji-rD3" firstAttribute="leading" secondItem="HbM-iX-Eb4" secondAttribute="leading" id="rBo-7K-44w"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="addPlantButton" destination="iTG-ji-rD3" id="Dmi-ak-65e"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="Oyd-HX-kF7" id="pzc-v1-bty"/>
                                     <outlet property="delegate" destination="Oyd-HX-kF7" id="n4H-tT-C0q"/>
@@ -302,7 +332,7 @@
             <objects>
                 <viewController id="wKB-oD-bb9" customClass="PlantViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cY2-iF-ISb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="cBN-7b-zNf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -320,7 +350,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="Z0b-uz-mmd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZpL-wA-ddB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
