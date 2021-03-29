@@ -210,14 +210,97 @@
                     <view key="view" contentMode="scaleToFill" id="Tjd-ek-lbd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Efk-2m-AbX">
+                                <rect key="frame" x="25" y="140" width="364" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hio-vH-8nX">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlantIdentifier" id="bLZ-rs-SYD" customClass="PlantCollectionViewCell" customModule="Twig" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9yX-WC-6iS">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Name" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcC-fl-u4I">
+                                                    <rect key="frame" x="8" y="66" width="110" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="Wpt-fr-yFZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0eA-Cv-Stj">
+                                                    <rect key="frame" x="8" y="8.5" width="25" height="24"/>
+                                                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="4oz-OA-8TY"/>
+                                                        <constraint firstAttribute="height" constant="25" id="iZx-OH-8OW"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="TwigAccent"/>
+                                            <constraints>
+                                                <constraint firstItem="ZcC-fl-u4I" firstAttribute="leading" secondItem="9yX-WC-6iS" secondAttribute="leading" constant="8" id="ABq-aB-8e3"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZcC-fl-u4I" secondAttribute="bottom" constant="8" id="Gc8-rp-aba"/>
+                                                <constraint firstItem="ZcC-fl-u4I" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0eA-Cv-Stj" secondAttribute="bottom" constant="33" id="OIB-pG-kaN"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZcC-fl-u4I" secondAttribute="trailing" constant="8" id="hD9-W6-mhz"/>
+                                                <constraint firstItem="0eA-Cv-Stj" firstAttribute="leading" secondItem="9yX-WC-6iS" secondAttribute="leading" constant="8" id="hHp-Oa-tOl"/>
+                                                <constraint firstItem="0eA-Cv-Stj" firstAttribute="top" secondItem="9yX-WC-6iS" secondAttribute="top" constant="8" id="tif-iC-JrD"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="TwigAccent"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="ZcC-fl-u4I" id="pNO-yE-qEP"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Oyd-HX-kF7" id="pzc-v1-bty"/>
+                                    <outlet property="delegate" destination="Oyd-HX-kF7" id="n4H-tT-C0q"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="r91-sN-YQX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Efk-2m-AbX" firstAttribute="top" secondItem="r91-sN-YQX" secondAttribute="top" id="6Mu-lp-Gaz"/>
+                            <constraint firstItem="Efk-2m-AbX" firstAttribute="leading" secondItem="r91-sN-YQX" secondAttribute="leading" constant="25" id="ARY-Ql-j82"/>
+                            <constraint firstItem="r91-sN-YQX" firstAttribute="trailing" secondItem="Efk-2m-AbX" secondAttribute="trailing" constant="25" id="ecL-ZP-rbh"/>
+                            <constraint firstItem="r91-sN-YQX" firstAttribute="bottom" secondItem="Efk-2m-AbX" secondAttribute="bottom" id="i2K-2k-Rzv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Room" largeTitleDisplayMode="always" id="Q3o-LN-Csd"/>
+                    <connections>
+                        <segue destination="wKB-oD-bb9" kind="show" identifier="PlantDetailIdentifier" id="lRQ-Jm-kIn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSd-fv-Hw0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2089.8550724637685" y="-506.25"/>
+        </scene>
+        <!--Plant-->
+        <scene sceneID="fu0-Tf-3Ho">
+            <objects>
+                <viewController id="wKB-oD-bb9" customClass="PlantViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cY2-iF-ISb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cBN-7b-zNf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plant" id="Uop-fB-5uv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MbR-gb-ErQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3499" y="-506"/>
         </scene>
         <!--Home-->
         <scene sceneID="apy-sN-udC">
@@ -244,6 +327,7 @@
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="list.number" catalog="system" width="128" height="97"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="TwigAccent">
