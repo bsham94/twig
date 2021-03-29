@@ -16,7 +16,7 @@ class PlantViewController: UIViewController {
         super.viewDidLoad()
 
         // Setup view
-        self.title = plant?.getName() ?? "Undefined"
+        //self.title = plant?.getName() ?? "Undefined"
     }
     
 

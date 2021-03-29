@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import CoreData
 
-class RoomViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class RoomViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
     // MARK: Properties
     private var room:Room?
     private let plantIdentifier = "PlantIdentifier" // Collection items
     private let detailsIdentifier = "PlantDetailIdentifier" // Plant segue
-    
+    private let context = AppDelegate.viewContext
+    private var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
     var examplePlants: [Plant] = [Plant]() // TODO: remove hardcoding
 
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Change back button label for next view
         let backButton = UIBarButtonItem()
-        backButton.title = room?.getName() ?? "Room"
+        //backButton.title = room?.getName() ?? "Room"
         navigationItem.backBarButtonItem = backButton
         
         if (segue.identifier == detailsIdentifier) {
@@ -30,15 +32,37 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     } // prepareForSegue
     
+    
+    func initializeFetchedResults(){
+        
+        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        let fetchSort = NSSortDescriptor(key:"name", ascending: true)
+        request.sortDescriptors = [fetchSort]
+        
+        fetchedResultsController = (NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil) as! NSFetchedResultsController<NSFetchRequestResult>)
+        
+        fetchedResultsController.delegate = self
+        
+        do{
+            try fetchedResultsController.performFetch()
+        }
+        catch {
+
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var plant = Plant(context: context).getName(name: "Jade Plant")
+        examplePlants.append(plant)
+        plant = plant.getName(name: "Aloe Vera")
+        examplePlants.append(plant)
+        plant.save(context: context)
         // Setup view
-        self.title = room?.getName() ?? "Undefined"
-        
+        //self.title = room?.getName() ?? "Undefined"
         // TODO: Remove hardcoded plants
-        examplePlants.append(Plant("Jade Plant"))
-        examplePlants.append(Plant("Aloe Vera"))        
     } // viewDidLoad
     
     // MARK: Mutators
@@ -65,7 +89,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: plantIdentifier, for: indexPath as IndexPath) as! PlantCollectionViewCell
         
-        cell.titleLabel.text = examplePlants[indexPath.row].getName()
+        cell.titleLabel.text = examplePlants[indexPath.row].getName(name: examplePlants[indexPath.row].name!).name
         return cell
     } // cellForItemAt
     

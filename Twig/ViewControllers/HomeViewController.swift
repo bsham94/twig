@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let roomIdentifier = "RoomIdentifier" // Collection items
     private let footerIdentifier = "FooterIdentifier" // Collection footer
     private let detailsIdentifier = "RoomDetailIdentifier" // Room segue
-    
+    private let context = AppDelegate.viewContext
     var exampleRooms: [Room] = [Room]() // TODO: remove hardcoding
     
     // MARK: Outlets
@@ -57,10 +57,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
         quickAddButton.showsMenuAsPrimaryAction = true
-        
         // TODO: Remove hardcoded rooms
-        exampleRooms.append(Room("Bedroom"))
-        exampleRooms.append(Room("Living Room"))
+        var room = Room(context: context).getName(name: "Bed Room")
+        exampleRooms.append(room)
+        room = room.getName(name: "Living Room")
+        exampleRooms.append(room)
+        room.save(context: context)
+        
+        
         
     } // viewDidLoad
     
@@ -80,7 +84,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roomIdentifier, for: indexPath as IndexPath) as! RoomCollectionViewCell
         
-        cell.titleLabel.text = exampleRooms[indexPath.row].getName()
+        cell.titleLabel.text = exampleRooms[indexPath.row].getName(name: exampleRooms[indexPath.row].name!).name
         return cell
     } // cellForItemAt
     
