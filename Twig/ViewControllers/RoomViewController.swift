@@ -16,6 +16,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let detailsIdentifier = "PlantDetailIdentifier" // Plant segue
     private let context = AppDelegate.viewContext
     private var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
+    private let footerIdentifier = "PlantFooterIdentifier"    
     var examplePlants: [Plant] = [Plant]() // TODO: remove hardcoding
 
     // MARK: Navigation
@@ -85,6 +86,12 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
         )
         return cellSize
     } // collectionViewLayout
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        // Use custom footer for collectionView
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath) as! AddPlantCollectionReusableView
+        return footer
+    } // viewForSupplementaryElementOfKind
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: plantIdentifier, for: indexPath as IndexPath) as! PlantCollectionViewCell

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9204E6602612625A00314589 /* AddPlantCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9204E65F2612625A00314589 /* AddPlantCollectionReusableView.swift */; };
 		922ADEF4260E57A7003B04D0 /* AddRoomCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */; };
 		922ADEFA260E701D003B04D0 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922ADEF9260E701D003B04D0 /* RoomViewController.swift */; };
 		925E0E7A260F9ADB00B996C5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E0E79260F9ADB00B996C5 /* Room.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9204E65F2612625A00314589 /* AddPlantCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantCollectionReusableView.swift; sourceTree = "<group>"; };
 		922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomCollectionReusableView.swift; sourceTree = "<group>"; };
 		922ADEF9260E701D003B04D0 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		925E0E79260F9ADB00B996C5 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				92BA8396260D664B0037FF80 /* RoomCollectionViewCell.swift */,
 				922ADEF3260E57A7003B04D0 /* AddRoomCollectionReusableView.swift */,
 				925E0E88260FA46A00B996C5 /* PlantCollectionViewCell.swift */,
+				9204E65F2612625A00314589 /* AddPlantCollectionReusableView.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				925E0E89260FA46A00B996C5 /* PlantCollectionViewCell.swift in Sources */,
 				925FA056260D16E6004A209C /* HomeViewController.swift in Sources */,
 				925FA048260D14C8004A209C /* Twig.xcdatamodeld in Sources */,
+				9204E6602612625A00314589 /* AddPlantCollectionReusableView.swift in Sources */,
 				925E0E86260FA31F00B996C5 /* PlantViewController.swift in Sources */,
 				925FA05D260D1876004A209C /* EncyclopediaViewController.swift in Sources */,
 				925E0E83260FA29900B996C5 /* Plant.swift in Sources */,
