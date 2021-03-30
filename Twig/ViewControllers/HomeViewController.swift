@@ -6,18 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
 
     // MARK: Properties
     private let roomIdentifier = "RoomIdentifier" // Collection items
     private let footerIdentifier = "FooterIdentifier" // Collection footer
     private let detailsIdentifier = "RoomDetailIdentifier" // Room segue
     private let context = AppDelegate.viewContext
-    var exampleRooms: [Room] = [Room]() // TODO: remove hardcoding
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
     // MARK: Outlets
     @IBOutlet weak var quickAddButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,7 +31,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if (segue.identifier == detailsIdentifier) {
             // Segue to detail view
             let roomViewController = segue.destination as! RoomViewController
-            roomViewController.initWithRoom(sender as! Room)
+            roomViewController.initWithRoomNamed((sender as! Room).name ?? "Undefined")
         }
     } // prepareForSegue
     
@@ -57,14 +59,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
         quickAddButton.showsMenuAsPrimaryAction = true
+        
+        // Load database
+        // Could we make this static?
+        initializeFetchedResultsController()
+        
         // TODO: Remove hardcoded rooms
-        var room = Room(context: context).getName(name: "Bed Room")
-        exampleRooms.append(room)
-        room = room.getName(name: "Living Room")
-        exampleRooms.append(room)
-        room.save(context: context)
-        
-        
+        Room.create(id: 1, name: "Bedroom")
+        Room.create(id: 2, name: "Living Room")
         
     } // viewDidLoad
     
@@ -78,13 +80,19 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return exampleRooms.count
+        if let sections = fetchedResultsController?.sections, sections.count > 0 {
+            print(sections[section].numberOfObjects)
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     } // numberofItemsInSection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roomIdentifier, for: indexPath as IndexPath) as! RoomCollectionViewCell
         
-        cell.titleLabel.text = exampleRooms[indexPath.row].getName(name: exampleRooms[indexPath.row].name!).name
+        let room = fetchedResultsController.object(at: indexPath) as! Room
+        cell.titleLabel.text = room.name
         return cell
     } // cellForItemAt
     
@@ -106,7 +114,47 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let room = exampleRooms[indexPath.row]
+        let room = fetchedResultsController.object(at: indexPath) as! Room
         performSegue(withIdentifier: detailsIdentifier, sender: room)
     } // didSelectItemAt
+    
+    // MARK: NSFetchedResultsController Functions
+    func initializeFetchedResultsController() {
+        let request : NSFetchRequest<Room> = Room.fetchRequest()
+        let fetchSort = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [fetchSort]
+        
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil) as? NSFetchedResultsController<NSFetchRequestResult>
+        
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FetchedResultsController: \(error)")
+        }
+    } // initializeFetchedResultsController
+    
+    func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            collectionView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
+        case .delete:
+            collectionView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
+        default: break
+        }
+    } // didChangeSection
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            collectionView.insertItems(at: [newIndexPath!])
+        case .delete:
+            collectionView.deleteItems(at: [indexPath!])
+        default: break
+        }
+    } // didChangeanObject
 }

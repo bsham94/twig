@@ -10,19 +10,19 @@ import UIKit
 class PlantViewController: UIViewController {
     
     // MARK: Properties
-    private var plant:Plant?
+    private var plant:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Setup view
-        //self.title = plant?.getName() ?? "Undefined"
+        self.title = plant
     }
     
 
     // MARK: Mutators
-    func initWithPlant(_ plant:Plant){
-        self.plant = plant
-    } // initWithRoom
+    func initWithPlantNamed(_ name:String){
+        self.plant = name
+    } // initWithPlantNamed
 
 }

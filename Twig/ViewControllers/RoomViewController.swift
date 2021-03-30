@@ -11,69 +11,57 @@ import CoreData
 class RoomViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
     // MARK: Properties
-    private var room:Room?
+    private var room:String?
     private let plantIdentifier = "PlantIdentifier" // Collection items
+    private let footerIdentifier = "PlantFooterIdentifier" //  Collection footer
     private let detailsIdentifier = "PlantDetailIdentifier" // Plant segue
     private let context = AppDelegate.viewContext
     private var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
-    private let footerIdentifier = "PlantFooterIdentifier"    
     var examplePlants: [Plant] = [Plant]() // TODO: remove hardcoding
 
+    // MARK: Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Change back button label for next view
         let backButton = UIBarButtonItem()
-        //backButton.title = room?.getName() ?? "Room"
+        backButton.title = room!
         navigationItem.backBarButtonItem = backButton
         
         if (segue.identifier == detailsIdentifier) {
             // Segue to detail view
             let plantViewController = segue.destination as! PlantViewController
-            plantViewController.initWithPlant(sender as! Plant)
+            plantViewController.initWithPlantNamed((sender as! Plant).name ?? "Undefined")
         }
     } // prepareForSegue
     
-    
-    func initializeFetchedResults(){
-        
-        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
-        let fetchSort = NSSortDescriptor(key:"name", ascending: true)
-        request.sortDescriptors = [fetchSort]
-        
-        fetchedResultsController = (NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil) as! NSFetchedResultsController<NSFetchRequestResult>)
-        
-        fetchedResultsController.delegate = self
-        
-        do{
-            try fetchedResultsController.performFetch()
-        }
-        catch {
-
-        }
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var plant = Plant(context: context).getName(name: "Jade Plant")
-        examplePlants.append(plant)
-        plant = plant.getName(name: "Aloe Vera")
-        examplePlants.append(plant)
-        plant.save(context: context)
         // Setup view
-        //self.title = room?.getName() ?? "Undefined"
+        self.title = room!
+        
+        // Load database
+        initializeFetchedResultsController()
+        
         // TODO: Remove hardcoded plants
+        Plant.create(id: 1, name: "Aloe Vera")
+        Plant.create(id: 2, name: "Jade Plant")
     } // viewDidLoad
     
     // MARK: Mutators
-    func initWithRoom(_ room:Room){
-        self.room = room
-    } // initWithRoom
+    func initWithRoomNamed(_ name:String){
+        self.room = name
+    } // initWithRoomNamed
     
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return examplePlants.count
+        if let sections = fetchedResultsController?.sections, sections.count > 0 {
+            print(sections[section].numberOfObjects)
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     } // numberofItemsInSection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -96,14 +84,54 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: plantIdentifier, for: indexPath as IndexPath) as! PlantCollectionViewCell
         
-        cell.titleLabel.text = examplePlants[indexPath.row].getName(name: examplePlants[indexPath.row].name!).name
+        let plant = fetchedResultsController.object(at: indexPath) as! Plant
+        cell.titleLabel.text = plant.name
         return cell
     } // cellForItemAt
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let plant = examplePlants[indexPath.row]
+        let plant = fetchedResultsController.object(at: indexPath) as! Plant
         performSegue(withIdentifier: detailsIdentifier, sender: plant)
     } // didSelectItemAt
-
+    
+    // MARK: NSFetchedResultsController Functions
+    func initializeFetchedResultsController() {
+        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        let fetchSort = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [fetchSort]
+        
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil) as? NSFetchedResultsController<NSFetchRequestResult>
+        
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FetchedResultsController: \(error)")
+        }
+    } // initializeFetchedResultsController
+    
+    func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            collectionView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
+        case .delete:
+            collectionView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
+        default: break
+        }
+    } // didChangeSection
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            collectionView.insertItems(at: [newIndexPath!])
+        case .delete:
+            collectionView.deleteItems(at: [indexPath!])
+        default: break
+        }
+    } // didChangeanObject
 }

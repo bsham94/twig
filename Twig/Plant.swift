@@ -9,49 +9,10 @@ import UIKit
 import CoreData
 
 class Plant : NSManagedObject {
-    // MARK: Properties
-//    private let name: String
-//
-//    // MARK: Constructor
-//    init(_ name: String) {
-//        self.name = name
-//    }
-//
-//    // MARK: Accessors
-    static var myId = 1
-    func getName(name: String) -> Plant {
+    // MARK: Accessors
+    class func existsWithName(_ name:String) -> Bool {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)
-        
-        // direct way to get the context
-        let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-        let context: NSManagedObjectContext = container.viewContext
-        
-        let plants = try? context.fetch(request)
-        if (plants?.isEmpty)! {
-            let newPlant = Plant(context: context)
-            newPlant.name = name
-            newPlant.id = Int16(Plant.myId)
-            Plant.myId += 1
-            print("Added New Plant  \(name)")
-            return newPlant
-        } else {
-            return plants![0] as Plant
-        }
-    }
-    
-    class func makePlant(id:Int16, name:String) {
-        let context = AppDelegate.viewContext
-        if !Plant.plantExists(name: name) {
-            print("---Class Room--adding new room------")
-            let plant = Plant(context: context)
-            plant.set(id: id,name: name)
-        }
-    } // makeMovies
-    
-    class func plantExists(name:String) -> Bool {
-        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
-        request.predicate = NSPredicate(format: "title = %@", name)
         let context = AppDelegate.viewContext
         let plants = try? context.fetch(request)
         if (plants?.isEmpty)! {
@@ -59,13 +20,22 @@ class Plant : NSManagedObject {
         } else {
             return true
         }
-    }
+    } // existsWithName
     
-    
+    // MARK: Mutators
     func set(id: Int16, name: String){
         self.id = id
         self.name = name
-    }
+    } // set
+    
+    class func create(id:Int16, name:String) {
+        let context = AppDelegate.viewContext
+        if !Plant.existsWithName(name) {
+            print("Adding new plant: \(id), \(name)")
+            let room = Plant(context: context)
+            room.set(id: id,name: name)
+        }
+    } // create
     
     func save(context : NSManagedObjectContext)
     {
@@ -75,11 +45,5 @@ class Plant : NSManagedObject {
         catch{
             
         }
-    }
-    
-    // MARK: Mutators
-    // TODO
-    
-    //MARK: CoreData
-
+    } // save
 }

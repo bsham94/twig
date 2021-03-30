@@ -170,6 +170,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bOG-7J-GVY"/>
                     <connections>
+                        <outlet property="collectionView" destination="AnD-Xw-baX" id="b4K-8W-Wcy"/>
                         <outlet property="quickAddButton" destination="IP9-C0-BZ7" id="rdw-nU-Fvf"/>
                         <segue destination="Oyd-HX-kF7" kind="show" identifier="RoomDetailIdentifier" id="hcp-ZG-qBt"/>
                     </connections>
@@ -321,6 +322,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Room" largeTitleDisplayMode="always" id="Q3o-LN-Csd"/>
                     <connections>
+                        <outlet property="collectionView" destination="Efk-2m-AbX" id="OE4-Bf-mzs"/>
                         <segue destination="wKB-oD-bb9" kind="show" identifier="PlantDetailIdentifier" id="lRQ-Jm-kIn"/>
                     </connections>
                 </viewController>
