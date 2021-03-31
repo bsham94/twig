@@ -112,7 +112,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NVj-UF-i5K">
-                                            <rect key="frame" x="12" y="10" width="214" height="100"/>
+                                            <rect key="frame" x="0.0" y="10" width="133" height="105"/>
                                             <color key="backgroundColor" name="TwigAccent"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="iKG-PI-MAo"/>
@@ -129,21 +129,11 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="NVj-UF-i5K" firstAttribute="leading" relation="lessThanOrEqual" secondItem="7Oi-PL-sRP" secondAttribute="leading" constant="12" id="8NR-cK-ohU"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="NVj-UF-i5K" secondAttribute="trailing" constant="130" id="IRn-W8-c8X"/>
-                                        <constraint firstAttribute="bottom" secondItem="NVj-UF-i5K" secondAttribute="bottom" constant="5" id="Z3V-H0-jxd"/>
-                                        <constraint firstItem="NVj-UF-i5K" firstAttribute="top" relation="lessThanOrEqual" secondItem="7Oi-PL-sRP" secondAttribute="topMargin" constant="2" id="j55-h4-SJi"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="NVj-UF-i5K" secondAttribute="trailing" constant="231" id="IKP-KM-ewv"/>
+                                        <constraint firstItem="NVj-UF-i5K" firstAttribute="leading" secondItem="7Oi-PL-sRP" secondAttribute="leading" id="Jxp-WF-jf4"/>
+                                        <constraint firstAttribute="bottom" secondItem="NVj-UF-i5K" secondAttribute="bottom" id="MFh-oU-fvo"/>
+                                        <constraint firstItem="NVj-UF-i5K" firstAttribute="top" secondItem="7Oi-PL-sRP" secondAttribute="top" constant="10" id="gzF-lV-jOf"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="8NR-cK-ohU"/>
-                                        </mask>
-                                    </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
-                                        <mask key="constraints">
-                                            <include reference="8NR-cK-ohU"/>
-                                        </mask>
-                                    </variation>
                                     <connections>
                                         <outlet property="addRoomButton" destination="NVj-UF-i5K" id="1BU-t1-Wmp"/>
                                     </connections>
