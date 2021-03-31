@@ -34,16 +34,22 @@ class Room : NSManagedObject {
             print("Adding new room: \(id), \(name)")
             let room = Room(context: context)
             room.set(id: id,name: name)
+        } else {
+            print("Room already exists")
         }
     } // create
     
-    func save(context : NSManagedObjectContext)
-    {
-        do{
-            try context.save()
+    class func delete(name:String) {
+        let request : NSFetchRequest<Room> = Room.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        let context = AppDelegate.viewContext
+        // For now, get all rooms with that name and delete them
+        // TODO: Get the specific id for the room, or prevent rooms from having
+        // duplicate names
+        if let rooms = try? context.fetch(request) {
+            for room in rooms {
+                context.delete(room)
+            }
         }
-        catch{
-            
-        }
-    } // save
+    } // delete
 }

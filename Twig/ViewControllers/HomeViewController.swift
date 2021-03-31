@@ -67,6 +67,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // TODO: Remove hardcoded rooms
         Room.create(id: 1, name: "Bedroom")
         Room.create(id: 2, name: "Living Room")
+        Room.create(id: 3, name: "Patio")
         
     } // viewDidLoad
     
@@ -145,6 +146,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             collectionView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
         case .delete:
             collectionView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
+            collectionView.reloadData()
+        case .update:
+            collectionView.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet)
         default: break
         }
     } // didChangeSection
@@ -155,6 +159,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             collectionView.insertItems(at: [newIndexPath!])
         case .delete:
             collectionView.deleteItems(at: [indexPath!])
+            collectionView.reloadData()
+        case .update:
+            collectionView.reloadItems(at: [newIndexPath!])
         default: break
         }
     } // didChangeanObject

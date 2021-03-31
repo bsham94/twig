@@ -54,6 +54,11 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.room = name
     } // initWithRoomNamed
     
+    @IBAction func deleteRoom(_ sender: Any) {
+        Room.delete(name: room!)
+        _ = navigationController?.popViewController(animated: true)
+    } // deleteRoom
+    
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let sections = fetchedResultsController?.sections, sections.count > 0 {

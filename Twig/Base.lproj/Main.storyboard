@@ -310,7 +310,14 @@
                             <constraint firstItem="r91-sN-YQX" firstAttribute="bottom" secondItem="Efk-2m-AbX" secondAttribute="bottom" id="i2K-2k-Rzv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Room" largeTitleDisplayMode="always" id="Q3o-LN-Csd"/>
+                    <navigationItem key="navigationItem" title="Room" largeTitleDisplayMode="always" id="Q3o-LN-Csd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="6l5-ah-tAX">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="deleteRoom:" destination="Oyd-HX-kF7" id="RAy-Mg-oQZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Efk-2m-AbX" id="OE4-Bf-mzs"/>
                         <segue destination="wKB-oD-bb9" kind="show" identifier="PlantDetailIdentifier" id="lRQ-Jm-kIn"/>
