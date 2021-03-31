@@ -104,9 +104,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize = CGSize(
-            // Cells are 80% of the screen width
+            // Cells are full width of collectionView
             width: (self.collectionView.frame.width),
             // Height will be ignored at runtime
+            // The constraints determine the height of each item
             height: 1
         )
         return cellSize
