@@ -82,7 +82,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            print(sections[section].numberOfObjects)
             return sections[section].numberOfObjects
         } else {
             return 0
@@ -107,9 +106,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cellSize = CGSize(
             // Cells are full width of collectionView
             width: (self.collectionView.frame.width),
-            // Height will be ignored at runtime
-            // The constraints determine the height of each item
-            height: 1
+            height: 127 // Height of cell defined in storyboard
         )
         return cellSize
     } // collectionViewLayout
@@ -146,7 +143,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             collectionView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
         case .delete:
             collectionView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
-            collectionView.reloadData()
         case .update:
             collectionView.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet)
         default: break
@@ -159,7 +155,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             collectionView.insertItems(at: [newIndexPath!])
         case .delete:
             collectionView.deleteItems(at: [indexPath!])
-            collectionView.reloadData()
         case .update:
             collectionView.reloadItems(at: [newIndexPath!])
         default: break

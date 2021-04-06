@@ -56,7 +56,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func deleteRoom(_ sender: Any) {
         Room.delete(name: room!)
-        _ = navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     } // deleteRoom
     
     // MARK: UICollectionView Functions
