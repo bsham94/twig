@@ -54,8 +54,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide navigation bar on this view
-        // We'll re-enable it in the next view
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
         quickAddButton.showsMenuAsPrimaryAction = true
