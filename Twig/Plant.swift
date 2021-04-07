@@ -32,8 +32,8 @@ class Plant : NSManagedObject {
         let context = AppDelegate.viewContext
         if !Plant.existsWithName(name) {
             print("Adding new plant: \(id), \(name)")
-            let room = Plant(context: context)
-            room.set(id: id,name: name)
+            let plant = Plant(context: context)
+            plant.set(id: id,name: name)
         }
     } // create
     
