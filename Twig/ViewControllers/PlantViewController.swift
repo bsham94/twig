@@ -19,7 +19,11 @@ class PlantViewController: UIViewController {
         self.title = plant
     }
     
-
+    @IBAction func deletePlant(_ sender: Any) {
+        Plant.delete(name: plant!)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: Mutators
     func initWithPlantNamed(_ name:String){
         self.plant = name

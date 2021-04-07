@@ -62,7 +62,6 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            print(sections[section].numberOfObjects)
             return sections[section].numberOfObjects
         } else {
             return 0
@@ -70,13 +69,17 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     } // numberofItemsInSection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = CGSize(
-            // Cells are 40% of the screen width
-            width: (self.view.frame.size.width * 0.40),
-            // Height will be ignored at runtime
-            // Due to constraints
-            height: 1
+        var cellSize = CGSize(
+            width: (self.collectionView.frame.width),
+            height: 127
         )
+        if collectionView.numberOfItems(inSection: 0) > 1 {
+            cellSize = CGSize(
+                // Cells are 40% of the screen width
+                width: (self.collectionView.frame.width * 0.45),
+                height: 127 // Height of cell defined in storyboard
+            )
+        }
         return cellSize
     } // collectionViewLayout
     
@@ -126,6 +129,8 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
             collectionView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
         case .delete:
             collectionView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
+        case .update:
+            collectionView.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet)
         default: break
         }
     } // didChangeSection
@@ -136,6 +141,8 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
             collectionView.insertItems(at: [newIndexPath!])
         case .delete:
             collectionView.deleteItems(at: [indexPath!])
+        case .update:
+            collectionView.reloadItems(at: [newIndexPath!])
         default: break
         }
     } // didChangeanObject

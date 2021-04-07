@@ -250,6 +250,7 @@
                                                 <constraint firstItem="ZcC-fl-u4I" firstAttribute="leading" secondItem="9yX-WC-6iS" secondAttribute="leading" constant="8" id="ABq-aB-8e3"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZcC-fl-u4I" secondAttribute="bottom" constant="8" id="Gc8-rp-aba"/>
                                                 <constraint firstItem="ZcC-fl-u4I" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0eA-Cv-Stj" secondAttribute="bottom" constant="33" id="OIB-pG-kaN"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0eA-Cv-Stj" secondAttribute="trailing" constant="8" id="ZDf-hV-C79"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZcC-fl-u4I" secondAttribute="trailing" constant="8" id="hD9-W6-mhz"/>
                                                 <constraint firstItem="0eA-Cv-Stj" firstAttribute="leading" secondItem="9yX-WC-6iS" secondAttribute="leading" constant="8" id="hHp-Oa-tOl"/>
                                                 <constraint firstItem="0eA-Cv-Stj" firstAttribute="top" secondItem="9yX-WC-6iS" secondAttribute="top" constant="8" id="tif-iC-JrD"/>
@@ -489,6 +490,9 @@
                     <navigationItem key="navigationItem" title="Plant" largeTitleDisplayMode="always" id="Uop-fB-5uv">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="urr-2y-KEA">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="deletePlant:" destination="wKB-oD-bb9" id="IIR-W8-Kw8"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>

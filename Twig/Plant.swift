@@ -37,6 +37,21 @@ class Plant : NSManagedObject {
         }
     } // create
     
+    class func delete(name:String) {
+        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        let context = AppDelegate.viewContext
+        // For now, get all plants with that name and delete them
+        // TODO: Get specific plant for room
+        // Currently causes an exception to be thrown because it is unsure which
+        // plants should be deleted
+        if let plants = try? context.fetch(request) {
+            for plant in plants {
+                context.delete(plant)
+            }
+        }
+    } // delete
+    
     func save(context : NSManagedObjectContext)
     {
         do{
