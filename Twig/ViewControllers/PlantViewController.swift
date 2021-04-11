@@ -13,9 +13,9 @@ class PlantViewController: UIViewController {
     private var plant:String?
     
     // MARK: Outlets
-    @IBOutlet weak var waterButton: UIButton!
     @IBOutlet weak var notificationLabel: UITextView!
-    @IBOutlet weak var quickAddButton: UIButton!
+    @IBOutlet weak var waterButton: UIButton!
+    @IBOutlet weak var quickAddButton: UIBarButtonItem!
     
 
     override func viewDidLoad() {
@@ -26,13 +26,13 @@ class PlantViewController: UIViewController {
         
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
-        quickAddButton.showsMenuAsPrimaryAction = true
         
         // Setup notification label
-        notificationLabel.isHidden = true // Hide until it's almost watering day
+        notificationLabel.layer.borderColor = UIColor.systemYellow.cgColor
+        notificationLabel.layer.borderWidth = 2
+        notificationLabel.text = "Happy and Healthy."
         
         // Setup water button
-        waterButton.isHidden = true // Hide until it's almost watering day
         waterButton.layer.cornerRadius = 5.0
 
     }
