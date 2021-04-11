@@ -34,11 +34,12 @@
                         <viewLayoutGuide key="safeArea" id="nfH-Xd-1dW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QkN-KE-cXB" firstAttribute="top" secondItem="e8w-xp-AlX" secondAttribute="bottom" constant="8" symbolic="YES" id="44n-a0-fPx"/>
                             <constraint firstItem="QkN-KE-cXB" firstAttribute="bottom" secondItem="nfH-Xd-1dW" secondAttribute="bottom" id="9EI-tN-Evh"/>
                             <constraint firstItem="nfH-Xd-1dW" firstAttribute="trailing" secondItem="QkN-KE-cXB" secondAttribute="trailing" constant="20" id="BCC-mV-2hV"/>
                             <constraint firstAttribute="trailing" secondItem="e8w-xp-AlX" secondAttribute="trailing" id="EXC-ow-VEE"/>
                             <constraint firstItem="e8w-xp-AlX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I1A-Ax-ejw" secondAttribute="leading" id="RQs-3A-Paf"/>
-                            <constraint firstItem="e8w-xp-AlX" firstAttribute="top" secondItem="I1A-Ax-ejw" secondAttribute="top" constant="90" id="Y3V-gJ-5xB"/>
+                            <constraint firstItem="e8w-xp-AlX" firstAttribute="top" relation="lessThanOrEqual" secondItem="I1A-Ax-ejw" secondAttribute="top" constant="90" id="Y3V-gJ-5xB"/>
                             <constraint firstItem="QkN-KE-cXB" firstAttribute="leading" secondItem="nfH-Xd-1dW" secondAttribute="leading" constant="20" id="f95-nG-37e"/>
                             <constraint firstItem="QkN-KE-cXB" firstAttribute="top" secondItem="nfH-Xd-1dW" secondAttribute="top" id="qeA-Dr-Bxd"/>
                         </constraints>
