@@ -71,13 +71,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             // Add plant menu action
             UIAction(title: "Add Plant", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in }),
             UIAction(title: "Add Room", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in
-                Alert.addRoomAlert(controller: self)
+                Alert.addRoomAndAlert(controller: self)
             })
         ]
     } // menuActions
     
     @IBAction func addRoomButtonTouched(_ sender: Any) {
-        Alert.addRoomAlert(controller: self)
+        Alert.addRoomAndAlert(controller: self)
     }
     
     func createAlertAndShow(title: String, message: String, buttonText: String) {

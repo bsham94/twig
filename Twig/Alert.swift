@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class Alert {
-    class func addRoomAlert(controller: UIViewController){
+    // MARK: Room Alerts
+    class func addRoomAndAlert(controller: UIViewController){
         let alertTitle = "Add Room"
         let alertMessage = "Room name:"
         let textFieldText = "Bedroom"
@@ -30,10 +31,56 @@ class Alert {
                 )
             }
         }))
-        alert.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(
+            title: cancelButtonTitle,
+            style: .cancel,
+            handler: nil
+        ))
         controller.present(alert, animated: true, completion: nil)
     } // addRoomAlert
     
+    class func deleteRoomAndAlert(_ controller: UIViewController, roomName: String) {
+        let alertTitle = "Are you sure you want to delete \(roomName)?"
+        let alertMessage = "This action cannot be undone."
+        let deleteButtonTitle = "Delete"
+        let cancelButtonTitle = "Cancel"
+        
+        // Creates an alert when deleting an item
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: deleteButtonTitle, style: .destructive, handler: { _ in
+            Room.delete(roomName)
+            controller.navigationController?.popViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(
+            title: cancelButtonTitle,
+            style: .cancel,
+            handler: nil
+        ))
+        controller.present(alert, animated: true, completion: nil)
+    } // deleteRoomAndAlert
+    
+    // MARK: Plant Alerts
+    class func deletePlantAndAlert(_ controller: UIViewController, plantName: String) {
+        let alertTitle = "Are you sure you want to delete \(plantName)?"
+        let alertMessage = "This action cannot be undone."
+        let deleteButtonTitle = "Delete"
+        let cancelButtonTitle = "Cancel"
+        
+        // Creates an alert when deleting an item
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: deleteButtonTitle, style: .destructive, handler: { _ in
+            Plant.delete(plantName)
+            controller.navigationController?.popViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(
+            title: cancelButtonTitle,
+            style: .cancel,
+            handler: nil
+        ))
+        controller.present(alert, animated: true, completion: nil)
+    } // deletePlantAndAlert
+    
+    // MARK: General Alerts
     class func errorAlert(_ controller: UIViewController, message: String) {
         let alertTitle = "An error occurred."
         let submitButtonTitle = "OK"
@@ -52,5 +99,4 @@ class Alert {
         alert.addAction(action)
         controller.present(alert,animated: true,completion: nil)
     } // errorAlert
-    
 }

@@ -45,8 +45,7 @@ class PlantViewController: UIViewController {
     } // quickAddMenuActions
     
     @IBAction func deletePlant(_ sender: Any) {
-        Plant.delete(plant!)
-        self.navigationController?.popViewController(animated: true)
+        Alert.deletePlantAndAlert(self, plantName: plant!)
     }
     
     // MARK: Mutators
