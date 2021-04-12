@@ -40,14 +40,16 @@ class Room : NSManagedObject {
         self.name = name
     } // set
     
-    class func create(name:String) {
+    class func create(name:String) -> Bool {
         let context = AppDelegate.viewContext
         if !Room.existsWithName(name) {
             print("Adding new room: \(name)")
             let room = Room(context: context)
             room.set(name: name)
+            return true
         } else {
             print("Room already exists")
+            return false
         }
     } // create
     

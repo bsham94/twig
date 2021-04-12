@@ -70,9 +70,31 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return [
             // Add plant menu action
             UIAction(title: "Add Plant", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in }),
-            UIAction(title: "Add Room", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in })
+            UIAction(title: "Add Room", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in
+                Alert.addRoomAlert(controller: self)
+            })
         ]
     } // menuActions
+    
+    @IBAction func addRoomButtonTouched(_ sender: Any) {
+        Alert.addRoomAlert(controller: self)
+    }
+    
+    func createAlertAndShow(title: String, message: String, buttonText: String) {
+        // Creates an alert and presents it
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(
+            title: buttonText,
+            style: .default,
+            handler: nil
+        )
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
     
     // MARK: UICollectionView Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
