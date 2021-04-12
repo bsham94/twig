@@ -62,10 +62,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Could we make this static?
         initializeFetchedResultsController()
         
-        // TODO: Remove hardcoded rooms
-        Room.create(id: 1, name: "Bedroom")
-        Room.create(id: 2, name: "Living Room")
-        Room.create(id: 3, name: "Patio")
+        initializeDB()
         
     } // viewDidLoad
     
@@ -158,4 +155,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         default: break
         }
     } // didChangeanObject
+    
+    // MARK: Database
+    func initializeDB(){
+        // TODO: Remove hardcoded rooms
+        Room.create(name: "Bedroom")
+        Plant.create(name: "Aloe Vera", room: "Bedroom")
+        Plant.create(name: "Sunflower", room: "Bedroom")
+        
+        Room.create(name: "Living Room")
+        Plant.create(name: "Jade Plant", room: "Living Room")
+    }
 }

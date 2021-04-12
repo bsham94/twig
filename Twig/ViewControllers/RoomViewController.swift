@@ -17,7 +17,6 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let detailsIdentifier = "PlantDetailIdentifier" // Plant segue
     private let context = AppDelegate.viewContext
     private var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
-    var examplePlants: [Plant] = [Plant]() // TODO: remove hardcoding
 
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -43,10 +42,6 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // Load database
         initializeFetchedResultsController()
-        
-        // TODO: Remove hardcoded plants
-        Plant.create(id: 1, name: "Aloe Vera")
-        Plant.create(id: 2, name: "Jade Plant")
     } // viewDidLoad
     
     // MARK: Mutators
@@ -55,7 +50,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     } // initWithRoomNamed
     
     @IBAction func deleteRoom(_ sender: Any) {
-        Room.delete(name: room!)
+        Room.delete(room!)
         self.navigationController?.popViewController(animated: true)
     } // deleteRoom
     
@@ -106,6 +101,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: NSFetchedResultsController Functions
     func initializeFetchedResultsController() {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        request.predicate = NSPredicate(format: "belongs_to.name = %@", room!)
         let fetchSort = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [fetchSort]
         

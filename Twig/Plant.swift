@@ -22,22 +22,35 @@ class Plant : NSManagedObject {
         }
     } // existsWithName
     
+    func getRoom(_ name: String) -> Room? {
+        let request : NSFetchRequest<Room> = Room.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        let context = AppDelegate.viewContext
+        let rooms = try? context.fetch(request)
+        if (rooms?.isEmpty)! {
+            return nil // should probably guard for this
+            // Maybe create the room if it doesn't already exist?
+        }else{
+            return rooms![0] as Room
+        }
+    }
+    
     // MARK: Mutators
-    func set(id: Int16, name: String){
-        self.id = id
+    func set(name: String, room: String){
         self.name = name
+        self.belongs_to = getRoom(room)!
     } // set
     
-    class func create(id:Int16, name:String) {
+    class func create(name:String, room:String) {
         let context = AppDelegate.viewContext
         if !Plant.existsWithName(name) {
-            print("Adding new plant: \(id), \(name)")
+            print("Adding new plant: \(name) to room: \(room)")
             let plant = Plant(context: context)
-            plant.set(id: id,name: name)
+            plant.set(name: name, room: room)
         }
     } // create
     
-    class func delete(name:String) {
+    class func delete(_ name:String) {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)
         let context = AppDelegate.viewContext
@@ -47,6 +60,7 @@ class Plant : NSManagedObject {
         // plants should be deleted
         if let plants = try? context.fetch(request) {
             for plant in plants {
+                print("Deleting plant \(plant.name!)")
                 context.delete(plant)
             }
         }

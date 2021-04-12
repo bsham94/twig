@@ -45,7 +45,7 @@ class PlantViewController: UIViewController {
     } // quickAddMenuActions
     
     @IBAction func deletePlant(_ sender: Any) {
-        Plant.delete(name: plant!)
+        Plant.delete(plant!)
         self.navigationController?.popViewController(animated: true)
     }
     
