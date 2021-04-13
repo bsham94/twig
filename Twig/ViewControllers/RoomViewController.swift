@@ -15,6 +15,7 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let plantIdentifier = "PlantIdentifier" // Collection items
     private let footerIdentifier = "PlantFooterIdentifier" //  Collection footer
     private let detailsIdentifier = "PlantDetailIdentifier" // Plant segue
+    private let addPlantIdentifier = "AddPlantSegueIdentifier"
     private let context = AppDelegate.viewContext
     private var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>!
 
@@ -32,6 +33,11 @@ class RoomViewController: UIViewController, UICollectionViewDataSource, UICollec
             // Segue to detail view
             let plantViewController = segue.destination as! PlantViewController
             plantViewController.initWithPlantNamed((sender as! Plant).name ?? "Undefined")
+        } else if (segue.identifier == addPlantIdentifier) {
+            // Segue to add plant view
+            let navController = segue.destination as! UINavigationController
+            let addPlantViewController = navController.topViewController as! AddPlantViewController
+            addPlantViewController.initWithDestination(room: room!)
         }
     } // prepareForSegue
     

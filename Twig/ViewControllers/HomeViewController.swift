@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let roomIdentifier = "RoomIdentifier" // Collection items
     private let footerIdentifier = "FooterIdentifier" // Collection footer
     private let detailsIdentifier = "RoomDetailIdentifier" // Room segue
+    private let addPlantIdentifier = "AddPlantSegueIdentifier"
     private let context = AppDelegate.viewContext
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
@@ -69,7 +70,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func quickAddMenuActions() -> [UIAction] {
         return [
             // Add plant menu action
-            UIAction(title: "Add Plant", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in }),
+            UIAction(title: "Add Plant", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in
+                self.performSegue(withIdentifier: self.addPlantIdentifier, sender: nil)
+            }),
             UIAction(title: "Add Room", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in
                 Alert.addRoomAndAlert(controller: self)
             })
