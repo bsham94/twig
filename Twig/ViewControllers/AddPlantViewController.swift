@@ -14,6 +14,7 @@ class AddPlantViewController: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var destinationTextField: UITextField!
+    @IBOutlet weak var aboutTextView: UITextView!
     
 
     override func viewDidLoad() {
@@ -27,6 +28,11 @@ class AddPlantViewController: UIViewController {
             // Change colour to make it obvious it is disabled
             destinationTextField.backgroundColor = UIColor.systemGray4
         }
+        // Adjust about text view to look like a large text field
+        aboutTextView.layer.borderColor = UIColor.systemGray5.cgColor
+        aboutTextView.layer.borderWidth = 1.0
+        aboutTextView.layer.cornerRadius = 8.0
+        aboutTextView.layer.masksToBounds = true
     } // viewDidLoad
     
     // MARK: Navigation
