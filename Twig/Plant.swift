@@ -31,8 +31,7 @@ class Plant : NSManagedObject {
         if (plants?.isEmpty)! {
             return nil
         } else {
-            print(plants)
-            return plants
+            return plants! as [Plant]
         }
     }
     
