@@ -36,17 +36,20 @@ class Plant : NSManagedObject {
     }
     
     // MARK: Mutators
-    func set(name: String, room: String){
+    func set(name: String, room: String,heat: Int, water: Int, sun_light: Int){
         self.name = name
         self.belongs_to = getRoom(room)!
+        self.heat = Int16(heat)
+        self.water = Int16(water)
+        self.sun_light = Int16(sun_light)
     } // set
     
-    class func create(name:String, room:String) {
+    class func create(name:String, room:String, heat: Int, water: Int, sun_light: Int) {
         let context = AppDelegate.viewContext
         if !Plant.existsWithName(name) {
             print("Adding new plant: \(name) to room: \(room)")
             let plant = Plant(context: context)
-            plant.set(name: name, room: room)
+            plant.set(name: name, room: room, heat: heat, water: water, sun_light: sun_light)
         }
     } // create
     
