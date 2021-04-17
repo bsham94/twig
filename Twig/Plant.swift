@@ -22,6 +22,21 @@ class Plant : NSManagedObject {
         }
     } // existsWithName
     
+    class func getAllPlants() -> [Plant]? {
+        //let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        //request.predicate = NSPredicate(format: "name = %@", name)
+        let plantRequest = NSFetchRequest<Plant>(entityName: "Plant")
+        let context = AppDelegate.viewContext
+        let plants = try? context.fetch(plantRequest)
+        if (plants?.isEmpty)! {
+            return nil
+        } else {
+            print(plants)
+            return plants
+        }
+    }
+    
+    
     func getRoom(_ name: String) -> Room? {
         let request : NSFetchRequest<Room> = Room.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)

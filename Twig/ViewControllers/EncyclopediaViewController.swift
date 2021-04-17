@@ -9,10 +9,11 @@ import UIKit
 
 class EncyclopediaViewController: UIViewController {
 
+    var plants : [Plant]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        plants = Plant.getAllPlants()
     }
     
 
