@@ -7,10 +7,12 @@
 
 import UIKit
 
-class AddPlantViewController: UIViewController {
+class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     private var destinationRoom: String?
+    private var imageWasSelected = false
+    let imagePickerController = UIImagePickerController()
     
     // MARK: Outlets
     @IBOutlet weak var imageView: UIImageView!
@@ -69,6 +71,15 @@ class AddPlantViewController: UIViewController {
         Alert.addedPlantAlert(self, plantName: name, roomName: destination)
     } // saveButtonTouched
     
+    @IBAction func addImageButtonTouched(_ sender: Any) {
+        // Use photo library
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Show image picker
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     @IBAction func screenTapped(_ sender: Any) {
         // Dismiss keyboard
         nameTextField.resignFirstResponder()
@@ -103,8 +114,34 @@ class AddPlantViewController: UIViewController {
         let name = nameTextField.text ?? ""
         let destination = destinationTextField.text ?? ""
         
-        // Verify that the rating was an integer first
-        saveButton.isEnabled = (!name.isEmpty && !destination.isEmpty)
+        saveButton.isEnabled = (!name.isEmpty && !destination.isEmpty && imageWasSelected)
     }
+    
+    // MARK: ImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss image picker if user cancelled
+        dismiss(animated: true, completion: nil)
+        
+        // Enable save button only if image was selected
+        updateSaveButtonState()
+    } // imagePickerControllerDidCancel
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Get the selected image
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected dictionary containing an image but got \(info).")
+        }
+        
+        // Set imageview to selected image
+        imageView.image = selectedImage
+        imageWasSelected = true
+        
+        // Dismiss image picker
+        dismiss(animated: true, completion: nil)
+        
+        // Enable save button only if image was selected
+        updateSaveButtonState()
+    } // imagePickerController
 
 }
