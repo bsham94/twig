@@ -60,6 +60,12 @@ class PlantViewController: UIViewController {
         Alert.deletePlantAndAlert(self, plantName: plantName!)
     } // deletePlant
     
+    @IBAction func waterButtonTouched(_ sender: Any) {
+        Plant.water(plantName!)
+        let plant = Plant.getPlant(plantName!)
+        notificationLabel.text = getWaterNotification(waterDate: (plant?.water_date)!)
+    }
+    
     // MARK: Mutators
     func initWithPlantNamed(_ name:String){
         self.plantName = name
