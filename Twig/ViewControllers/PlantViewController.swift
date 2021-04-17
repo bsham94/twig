@@ -31,6 +31,7 @@ class PlantViewController: UIViewController {
         waterTextView.text = mapRequirementsToText(requirement: "water", value: Int(plant?.water ?? 5))
         sunlightTextView.text = mapRequirementsToText(requirement: "sunlight", value: Int(plant?.sun_light ?? 5))
         heatTextView.text = mapRequirementsToText(requirement: "warmth", value: Int(plant?.heat ?? 5))
+        aboutTextView.text = plant?.plant_description
         
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
