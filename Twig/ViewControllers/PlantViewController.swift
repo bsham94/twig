@@ -41,7 +41,8 @@ class PlantViewController: UIViewController {
         // Setup notification label
         notificationLabel.layer.borderColor = UIColor.systemYellow.cgColor
         notificationLabel.layer.borderWidth = 2
-        notificationLabel.text = "Happy and Healthy."
+        // If we need to water today, alert us
+        notificationLabel.text = getWaterNotification(waterDate: (plant?.water_date)!)
         
         // Setup water button
         waterButton.layer.cornerRadius = 5.0
@@ -58,6 +59,12 @@ class PlantViewController: UIViewController {
     @IBAction func deletePlant(_ sender: Any) {
         Alert.deletePlantAndAlert(self, plantName: plantName!)
     } // deletePlant
+    
+    @IBAction func waterButtonTouched(_ sender: Any) {
+        Plant.water(plantName!)
+        let plant = Plant.getPlant(plantName!)
+        notificationLabel.text = getWaterNotification(waterDate: (plant?.water_date)!)
+    }
     
     // MARK: Mutators
     func initWithPlantNamed(_ name:String){
@@ -77,5 +84,18 @@ class PlantViewController: UIViewController {
             return "Tons of \(requirement) required."
         }
     } // mapRequirementsToText
+    
+    func getWaterNotification(waterDate: Date) -> String {
+        let currentDate = Date()
+        print(waterDate)
+        if(Calendar.current.isDate(waterDate, inSameDayAs: currentDate)) {
+            return "Watering day! Please consider watering \(plantName ?? "Undefined") today!"
+        } else if (currentDate > waterDate){
+            return "It's past watering day! Water ASAP!"
+        } else {
+            let components = Calendar.current.dateComponents([.day, .month], from: waterDate)
+            return "Happy and Healthy. \nNext watering day: \(components.month!)/\(components.day!)"
+        }
+    } // getWaterNotification
 
 }

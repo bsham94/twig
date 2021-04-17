@@ -641,6 +641,9 @@
                                                 <state key="normal" title="Water" image="drop.fill" catalog="system">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="waterButtonTouched:" destination="wKB-oD-bb9" eventType="touchUpInside" id="QGG-yA-6jO"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f02-y3-vLL">
                                                 <rect key="frame" x="20" y="230" width="374" height="150"/>
