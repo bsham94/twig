@@ -776,6 +776,7 @@
                     <connections>
                         <outlet property="aboutTextView" destination="fV9-Uy-HYc" id="dR1-Yk-3BQ"/>
                         <outlet property="heatTextView" destination="NkO-Yc-JTL" id="hML-6N-eh3"/>
+                        <outlet property="imageView" destination="Z00-Pw-AUa" id="L5c-a1-0aO"/>
                         <outlet property="notificationLabel" destination="DgI-AD-ix2" id="i6v-ro-y2h"/>
                         <outlet property="quickAddButton" destination="XcR-sH-99x" id="tSP-bw-qpa"/>
                         <outlet property="sunlightTextView" destination="dEm-W7-HAO" id="80M-Zb-eKS"/>

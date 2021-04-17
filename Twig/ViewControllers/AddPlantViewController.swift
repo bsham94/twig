@@ -63,11 +63,10 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         let water = Int(waterSlider.value * 10)
         let sun = Int(sunSlider.value * 10)
         let description = aboutTextView.text ?? ""
-        print("Heat \(heat)")
-        
+        let image = imageView.image!
         
         // Create plant
-        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun, plant_description: description)
+        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun, plant_description: description, imageData: image.pngData()!)
         Alert.addedPlantAlert(self, plantName: name, roomName: destination)
     } // saveButtonTouched
     

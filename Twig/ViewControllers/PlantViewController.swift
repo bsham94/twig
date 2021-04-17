@@ -20,6 +20,7 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var sunlightTextView: UITextView!
     @IBOutlet weak var waterTextView: UITextView!
     @IBOutlet weak var heatTextView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
 
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class PlantViewController: UIViewController {
         sunlightTextView.text = mapRequirementsToText(requirement: "sunlight", value: Int(plant?.sun_light ?? 5))
         heatTextView.text = mapRequirementsToText(requirement: "warmth", value: Int(plant?.heat ?? 5))
         aboutTextView.text = plant?.plant_description
+        imageView.image = UIImage(data: (plant?.imageData)!)
         
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
