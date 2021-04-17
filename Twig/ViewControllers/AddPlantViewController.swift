@@ -60,11 +60,12 @@ class AddPlantViewController: UIViewController {
         let heat = Int(heatSlider.value * 10)
         let water = Int(waterSlider.value * 10)
         let sun = Int(sunSlider.value * 10)
+        let description = aboutTextView.text ?? ""
         print("Heat \(heat)")
         
         
         // Create plant
-        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun)
+        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun, plant_description: description)
         Alert.addedPlantAlert(self, plantName: name, roomName: destination)
     } // saveButtonTouched
     
