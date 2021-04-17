@@ -7,6 +7,7 @@
         <attribute name="plant_description" optional="YES" attributeType="String"/>
         <attribute name="sun_light" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="water" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="water_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="belongs_to" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="contains" inverseEntity="Room"/>
     </entity>
     <entity name="Room" representedClassName=".Room" syncable="YES" codeGenerationType="category">
@@ -14,7 +15,7 @@
         <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Plant" inverseName="belongs_to" inverseEntity="Plant"/>
     </entity>
     <elements>
-        <element name="Plant" positionX="-45" positionY="0" width="128" height="134"/>
+        <element name="Plant" positionX="-45" positionY="0" width="128" height="149"/>
         <element name="Room" positionX="177.9102783203125" positionY="1.61029052734375" width="128" height="73"/>
     </elements>
 </model>

@@ -63,6 +63,23 @@ class Plant : NSManagedObject {
         }
     } // getPlant
     
+    func getTimeInterval(waterAmount: Int) -> TimeInterval {
+        let daysToSeconds = 24*60*60
+        var time = 0
+        if (waterAmount <= 0) {
+            time = 30 * daysToSeconds // 30 days
+        } else if (waterAmount > 0 && waterAmount < 5) {
+            time = 14 * daysToSeconds // 14 days
+        } else if (waterAmount == 5) {
+            time = 7 * daysToSeconds // 7 days
+        } else if (waterAmount > 5 && waterAmount < 10) {
+            time = 4 * daysToSeconds // 4 days
+        } else {
+            time = 2 * daysToSeconds // 2 days
+        }
+        return TimeInterval(time)
+    } // getTimeInterval
+    
     // MARK: Mutators
     func set(name: String, room: String,heat: Int, water: Int, sun_light: Int, plant_description: String, imageData: Data){
         self.name = name
@@ -72,6 +89,7 @@ class Plant : NSManagedObject {
         self.sun_light = Int16(sun_light)
         self.plant_description = plant_description
         self.imageData = imageData
+        self.water_date = Date().addingTimeInterval(getTimeInterval(waterAmount: water))
     } // set
     
     class func create(name:String, room:String, heat: Int, water: Int, sun_light: Int, plant_description: String, imageData: Data) {
