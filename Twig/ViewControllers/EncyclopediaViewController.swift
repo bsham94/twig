@@ -15,12 +15,13 @@ class EncyclopediaViewController: UIViewController, UITableViewDataSource, UITab
     private let context = AppDelegate.viewContext
     let segueId = "PlantViewSegue"
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
-    var plants : [Plant]?
+    var plantsFiltered = [Plant]()
+    
     
     override func viewDidLoad() {
             super.viewDidLoad()
-            tableView.dataSource = self
             initializeFetchedResultsController()
+            plantsFiltered = Plant.getAllPlants()!
         }
         // MARK: NSFetchedResultsController Functions
         func initializeFetchedResultsController() {
@@ -43,19 +44,24 @@ class EncyclopediaViewController: UIViewController, UITableViewDataSource, UITab
         }
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if let sections = fetchedResultsController?.sections, sections.count > 0 {
-                return sections[section].numberOfObjects
-            } else {
-                return 0
-            }
+            return plantsFiltered.count
         }
-        
+    //Filerts the table views array
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        plantsFiltered = Plant.getAllPlants()!
+        .filter({ plant -> Bool in
+                if searchText.isEmpty { return true }
+                return plant.name!.lowercased().contains(searchText.lowercased())
+            }
+        )
+        tableView.reloadData()
+    }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             var cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.customCellIdentifier, for: indexPath) as? CustomCell
             if (cell == nil) {
                 cell = CustomCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: CustomCell.customCellIdentifier)
             }
-            let plant = fetchedResultsController.object(at: indexPath) as! Plant
+            let plant = plantsFiltered[indexPath.row]//fetchedResultsController.object(at: indexPath) as! Plant
             // fill cells question
             cell?.cellText?.text = plant.name
             return cell!

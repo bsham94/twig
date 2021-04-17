@@ -228,6 +228,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="b4V-tm-2po" id="X2L-KA-tNX"/>
+                                    </connections>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reuseIdentifier" id="7B2-0g-0Db" customClass="CustomCell" customModule="Twig" customModuleProvider="target">
@@ -258,8 +261,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="rMC-Kh-acI" id="UVj-Dc-Zyl"/>
-                                    <outlet property="delegate" destination="rMC-Kh-acI" id="f2y-yp-XnM"/>
+                                    <outlet property="dataSource" destination="b4V-tm-2po" id="2TN-Be-VqE"/>
+                                    <outlet property="delegate" destination="b4V-tm-2po" id="w2r-T5-pWi"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -423,7 +426,7 @@
             <objects>
                 <viewController id="6QN-yV-Ntq" customClass="AddPlantViewController" customModule="Twig" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VgC-Hv-GAN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Qc-k4-q3S">
