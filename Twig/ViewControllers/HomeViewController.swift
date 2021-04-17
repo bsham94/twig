@@ -185,10 +185,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func initializeDB(){
         // TODO: Remove hardcoded rooms
         Room.create(name: "Bedroom")
-        Plant.create(name: "Aloe Vera", room: "Bedroom", heat: 10, water: 5, sun_light: 7)
-        Plant.create(name: "Sunflower", room: "Bedroom", heat: 9, water: 3, sun_light: 2)
+        Plant.create(name: "Aloe Vera", room: "Bedroom", heat: 10, water: 5, sun_light: 7,plant_description: "Green")
+        Plant.create(name: "Sunflower", room: "Bedroom", heat: 9, water: 3, sun_light: 2, plant_description: "Definitely not green")
         
         Room.create(name: "Living Room")
-        Plant.create(name: "Jade Plant", room: "Living Room", heat: 4, water: 6, sun_light: 8)
+        Plant.create(name: "Jade Plant", room: "Living Room", heat: 4, water: 6, sun_light: 8, plant_description: "Might be green")
     }
 }
