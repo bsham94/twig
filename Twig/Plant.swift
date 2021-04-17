@@ -50,6 +50,19 @@ class Plant : NSManagedObject {
         }
     }
     
+    class func getPlant(_ name: String) -> Plant? {
+        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        let context = AppDelegate.viewContext
+        let plants = try? context.fetch(request)
+        if (plants?.isEmpty)! {
+            return nil // should probably guard for this
+            // Maybe create the room if it doesn't already exist?
+        }else{
+            return plants![0] as Plant
+        }
+    } // getPlant
+    
     // MARK: Mutators
     func set(name: String, room: String,heat: Int, water: Int, sun_light: Int, plant_description: String){
         self.name = name
