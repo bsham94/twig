@@ -737,7 +737,9 @@
                     <connections>
                         <outlet property="notificationLabel" destination="DgI-AD-ix2" id="i6v-ro-y2h"/>
                         <outlet property="quickAddButton" destination="XcR-sH-99x" id="tSP-bw-qpa"/>
+                        <outlet property="sunlightTextView" destination="dEm-W7-HAO" id="80M-Zb-eKS"/>
                         <outlet property="waterButton" destination="NP4-7d-RUS" id="14m-VI-nbz"/>
+                        <outlet property="waterTextView" destination="BST-VK-xeY" id="9fw-gy-Sz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbR-gb-ErQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

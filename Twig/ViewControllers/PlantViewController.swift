@@ -10,19 +10,27 @@ import UIKit
 class PlantViewController: UIViewController {
     
     // MARK: Properties
-    private var plant:String?
+    private var plantName:String?
     
     // MARK: Outlets
     @IBOutlet weak var notificationLabel: UITextView!
     @IBOutlet weak var waterButton: UIButton!
     @IBOutlet weak var quickAddButton: UIBarButtonItem!
+    @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var sunlightTextView: UITextView!
+    @IBOutlet weak var waterTextView: UITextView!
+    @IBOutlet weak var heatTextView: UITextView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Setup view
-        self.title = plant
+        self.title = plantName
+        let plant = Plant.getPlant(plantName!)
+        waterTextView.text = mapRequirementsToText(requirement: "water", value: Int(plant?.water ?? 5))
+        sunlightTextView.text = mapRequirementsToText(requirement: "sunlight", value: Int(plant?.sun_light ?? 5))
+        heatTextView.text = mapRequirementsToText(requirement: "warmth", value: Int(plant?.heat ?? 5))
         
         // Setup quick add button to be a dropdown
         quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
@@ -35,7 +43,7 @@ class PlantViewController: UIViewController {
         // Setup water button
         waterButton.layer.cornerRadius = 5.0
 
-    }
+    } // viewDidLoad
     
     private func quickAddMenuActions() -> [UIAction] {
         return [
@@ -45,12 +53,26 @@ class PlantViewController: UIViewController {
     } // quickAddMenuActions
     
     @IBAction func deletePlant(_ sender: Any) {
-        Alert.deletePlantAndAlert(self, plantName: plant!)
-    }
+        Alert.deletePlantAndAlert(self, plantName: plantName!)
+    } // deletePlant
     
     // MARK: Mutators
     func initWithPlantNamed(_ name:String){
-        self.plant = name
+        self.plantName = name
     } // initWithPlantNamed
+    
+    func mapRequirementsToText(requirement: String, value: Int) -> String {
+        if (value <= 0) {
+            return "Almost no \(requirement) required."
+        } else if (value > 0 && value < 5) {
+            return "Very little \(requirement) required."
+        } else if (value == 5) {
+            return "Moderate \(requirement) required."
+        } else if (value > 5 && value < 10) {
+            return "Lots of \(requirement) required."
+        } else {
+            return "Tons of \(requirement) required."
+        }
+    } // mapRequirementsToText
 
 }
