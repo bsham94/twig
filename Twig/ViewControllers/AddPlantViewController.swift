@@ -49,7 +49,24 @@ class AddPlantViewController: UIViewController {
     } // cancelButtonTouched
     
     @IBAction func saveButtonTouched(_ sender: Any) {
-    }
+        let destination = destinationTextField.text ?? ""
+        if !Room.existsWithName(destination) {
+            Alert.errorAlert(self, message: "No room exists with name \(destination)")
+            return
+        }
+        
+        // Get all the values
+        let name = nameTextField.text ?? ""
+        let heat = Int(heatSlider.value * 10)
+        let water = Int(waterSlider.value * 10)
+        let sun = Int(sunSlider.value * 10)
+        print("Heat \(heat)")
+        
+        
+        // Create plant
+        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun)
+        Alert.addedPlantAlert(self, plantName: name, roomName: destination)
+    } // saveButtonTouched
     
     @IBAction func screenTapped(_ sender: Any) {
         // Dismiss keyboard

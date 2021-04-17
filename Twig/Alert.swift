@@ -60,6 +60,24 @@ class Alert {
     } // deleteRoomAndAlert
     
     // MARK: Plant Alerts
+    class func addedPlantAlert(_ controller: UIViewController, plantName: String, roomName: String) {
+        let alertTitle = "\(plantName) added to \(roomName)!"
+        let submitButtonTitle = "OK"
+        
+        // Creates a simple error notification
+        let alert = UIAlertController(
+            title: alertTitle,
+            message: "",
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: submitButtonTitle, style: .default, handler: {
+            _ in
+            controller.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(action)
+        controller.present(alert, animated: true, completion: nil)
+    } // addedPlantAlert
+    
     class func deletePlantAndAlert(_ controller: UIViewController, plantName: String) {
         let alertTitle = "Are you sure you want to delete \(plantName)?"
         let alertMessage = "This action cannot be undone."
