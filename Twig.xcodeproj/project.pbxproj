@@ -70,6 +70,7 @@
 		9220EDD6262CAC2000A2A9E8 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				B5503A99262B6EA900CB6FD8 /* CustomCell.swift */,
 				9220EDD7262CAC4F00A2A9E8 /* EncyclopediaTableViewCell.swift */,
 			);
 			path = TableView;
@@ -131,7 +132,6 @@
 				925E0E79260F9ADB00B996C5 /* Room.swift */,
 				925E0E82260FA29900B996C5 /* Plant.swift */,
 				9278665E2624F89B00056541 /* Alert.swift */,
-				B5503A99262B6EA900CB6FD8 /* CustomCell.swift */,
 			);
 			path = Twig;
 			sourceTree = "<group>";
