@@ -24,8 +24,6 @@ class Plant : NSManagedObject {
     
     class func getAllPlants() -> [Plant]? {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
-        //request.predicate = NSPredicate(format: "name = %@", name)
-        //let plantRequest = NSFetchRequest<Plant>(entityName: "Plant")
         let context = AppDelegate.viewContext
         let plants = try? context.fetch(request)
         if (plants?.isEmpty)! {
@@ -33,7 +31,7 @@ class Plant : NSManagedObject {
         } else {
             return plants! as [Plant]
         }
-    }
+    } // getAllPlants
     
     
     func getRoom(_ name: String) -> Room? {
@@ -42,12 +40,11 @@ class Plant : NSManagedObject {
         let context = AppDelegate.viewContext
         let rooms = try? context.fetch(request)
         if (rooms?.isEmpty)! {
-            return nil // should probably guard for this
-            // Maybe create the room if it doesn't already exist?
+            return nil 
         }else{
             return rooms![0] as Room
         }
-    }
+    } // getRoom
     
     class func getPlant(_ name: String) -> Plant? {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
@@ -136,10 +133,6 @@ class Plant : NSManagedObject {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)
         let context = AppDelegate.viewContext
-        // For now, get all plants with that name and delete them
-        // TODO: Get specific plant for room
-        // Currently causes an exception to be thrown because it is unsure which
-        // plants should be deleted
         if let plants = try? context.fetch(request) {
             for plant in plants {
                 print("Deleting plant \(plant.name!)")
