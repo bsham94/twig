@@ -63,8 +63,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Could we make this static?
         initializeFetchedResultsController()
         
-        initializeDB()
-        
     } // viewDidLoad
     
     private func quickAddMenuActions() -> [UIAction] {
@@ -180,17 +178,4 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         default: break
         }
     } // didChangeanObject
-    
-    // MARK: Database
-    func initializeDB(){
-        // TODO: Remove hardcoded rooms
-        let image = UIImage(systemName: "questionmark.circle.fill")!
-        _ = Room.create(name: "Bedroom")
-        Plant.create(name: "Aloe Vera", room: "Bedroom", heat: 10, water: 5, sun_light: 7,plant_description: "Green", imageData: image.pngData()!)
-        Plant.create(name: "Sunflower", room: "Bedroom", heat: 9, water: 3, sun_light: 2, plant_description: "Definitely not green", imageData: image.pngData()!)
-        Plant.setWaterDateToToday("Sunflower")
-        
-        _ = Room.create(name: "Living Room")
-        Plant.create(name: "Jade Plant", room: "Living Room", heat: 4, water: 6, sun_light: 8, plant_description: "Might be green", imageData: image.pngData()!)
-    }
 }
