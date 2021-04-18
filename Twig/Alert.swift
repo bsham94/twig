@@ -78,6 +78,26 @@ class Alert {
         controller.present(alert, animated: true, completion: nil)
     } // addedPlantAlert
     
+    class func waterDateUpdatedAlert(_ controller: UIViewController, daysUntilNextWater: Int){
+        let alertTitle = "Plant watered!"
+        let message = "Water again in \(daysUntilNextWater) days!"
+        let submitButtonTitle = "OK"
+        
+        // Creates a simple error notification
+        let alert = UIAlertController(
+            title: alertTitle,
+            message: message,
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(
+            title: submitButtonTitle,
+            style: .default,
+            handler: nil
+        )
+        alert.addAction(action)
+        controller.present(alert,animated: true,completion: nil)
+    } // waterDateUpdatedAlert
+    
     class func deletePlantAndAlert(_ controller: UIViewController, plantName: String) {
         let alertTitle = "Are you sure you want to delete \(plantName)?"
         let alertMessage = "This action cannot be undone."
