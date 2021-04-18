@@ -184,7 +184,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: Database
     func initializeDB(){
         // TODO: Remove hardcoded rooms
-        let image = UIImage(systemName: "leaf.fill")!
+        let image = UIImage(systemName: "questionmark.circle.fill")!
         Room.create(name: "Bedroom")
         Plant.create(name: "Aloe Vera", room: "Bedroom", heat: 10, water: 5, sun_light: 7,plant_description: "Green", imageData: image.pngData()!)
         Plant.create(name: "Sunflower", room: "Bedroom", heat: 9, water: 3, sun_light: 2, plant_description: "Definitely not green", imageData: image.pngData()!)
