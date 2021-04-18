@@ -270,7 +270,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljS-bL-beK">
-                                                    <rect key="frame" x="166" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="28" y="-0.5" width="42" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="5Hh-ew-TPY"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -278,7 +281,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ljS-bL-beK" firstAttribute="centerY" secondItem="Dy7-CN-LW7" secondAttribute="centerY" id="52n-ce-ENE"/>
-                                                <constraint firstItem="ljS-bL-beK" firstAttribute="centerX" secondItem="Dy7-CN-LW7" secondAttribute="centerX" id="XrY-H2-5CI"/>
+                                                <constraint firstItem="ljS-bL-beK" firstAttribute="leading" secondItem="Dy7-CN-LW7" secondAttribute="leadingMargin" constant="8" id="fgS-C0-8Mz"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ljS-bL-beK" secondAttribute="trailing" constant="8" id="mdP-36-HGb"/>
                                             </constraints>
                                             <connections>
                                                 <outlet property="cellText" destination="ljS-bL-beK" id="RLT-9u-9LE"/>
