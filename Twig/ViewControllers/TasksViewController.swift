@@ -9,13 +9,21 @@ import UIKit
 import CoreData
 
 class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSFetchedResultsControllerDelegate {
-
+    @IBOutlet weak var tableView: UITableView!
+    
     private let context = AppDelegate.viewContext
     let segueId = "PlantViewSegue"
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("VIEW APPEARED")
+        initializeFetchedResultsController()
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 44
         initializeFetchedResultsController()
     }
     
@@ -70,6 +78,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let plant = fetchedResultsController.object(at: indexPath) as! Plant
-        //performSegue(withIdentifier: segueId, sender: plant)
+        performSegue(withIdentifier: segueId, sender: plant)
     }
 }
