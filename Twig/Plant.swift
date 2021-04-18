@@ -117,6 +117,21 @@ class Plant : NSManagedObject {
         }
     } // water
     
+    class func setWaterDateToToday(_ name: String) {
+        let request : NSFetchRequest<Plant> = Plant.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        let context = AppDelegate.viewContext
+        let plants = try? context.fetch(request)
+        if (plants?.isEmpty)! {
+            return
+        }else{
+            let plant = plants![0] as Plant
+            let newDate = Date()
+            plant.setValue(newDate, forKey: "water_date")
+            return
+        }
+    } // setWaterDateToToday
+    
     class func delete(_ name:String) {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", name)
