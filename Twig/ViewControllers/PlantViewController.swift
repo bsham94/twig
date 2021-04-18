@@ -35,6 +35,8 @@ class PlantViewController: UIViewController {
         if let imageData = plant?.imageData {
             // If imagedata exists, load it
             imageView.image = UIImage(data: imageData)
+        } else {
+            Alert.errorAlert(self, message: "Couldn't load image data.")
         }
         
         
@@ -47,6 +49,7 @@ class PlantViewController: UIViewController {
             notificationLabel.text = getWaterNotification(waterDate: water_date)
         } else {
             notificationLabel.text = "Couldn't load watering data. Try again later."
+            Alert.errorAlert(self, message: "Couldn't load watering data.")
         }
         // Setup water button
         waterButton.layer.cornerRadius = 5.0
@@ -58,9 +61,18 @@ class PlantViewController: UIViewController {
     } // deletePlant
     
     @IBAction func waterButtonTouched(_ sender: Any) {
-        Plant.water(plantName!)
         let plant = Plant.getPlant(plantName!)
-        notificationLabel.text = getWaterNotification(waterDate: (plant?.water_date)!)
+        if let water_date = plant?.water_date {
+            Plant.water(plantName!)
+            let plant = Plant.getPlant(plantName!)
+            notificationLabel.text = getWaterNotification(waterDate: water_date)
+            let interval = Plant.getTimeInterval(waterAmount: Int(plant!.water))
+            let intervalAsDays = interval/24/60/60
+            Alert.waterDateUpdatedAlert(self, daysUntilNextWater: Int(intervalAsDays))
+        }
+        else {
+            Alert.errorAlert(self, message: "Couldn't load watering data.")
+        }
     }
     
     // MARK: Mutators
