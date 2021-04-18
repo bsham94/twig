@@ -14,20 +14,31 @@ class EncyclopediaViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var searchBar: UISearchBar!
     private let context = AppDelegate.viewContext
     let segueId = "PlantViewSegue"
+    let reuseIdentifier = "encyclopediaReuseIdentifier"
     private let addPlantIdentifier = "AddPlantSegueIdentifier"
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     var plantsFiltered = [Plant]()
     
     override func viewWillAppear(_ animated: Bool) {
         print("VIEW APPEARED")
-        plantsFiltered = Plant.getAllPlants()!
+        if let plants = Plant.getAllPlants() {
+            plantsFiltered = plants
+        } else {
+            plantsFiltered = [Plant]()
+        }
         tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeFetchedResultsController()
-        plantsFiltered = Plant.getAllPlants()!
+        tableView.rowHeight = 44
+        if let plants = Plant.getAllPlants() {
+            plantsFiltered = plants
+        } else {
+            plantsFiltered = [Plant]()
+        }
+        
     }
     
     // MARK: NSFetchedResultsController Functions
@@ -67,13 +78,11 @@ class EncyclopediaViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.customCellIdentifier, for: indexPath) as? CustomCell
-        if (cell == nil) {
-            cell = CustomCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: CustomCell.customCellIdentifier)
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? EncyclopediaTableViewCell
+
         let plant = plantsFiltered[indexPath.row]
         // fill cells plant name
-        cell?.cellText?.text = plant.name
+        cell?.nameLabel.text = plant.name
         return cell!
     }
     

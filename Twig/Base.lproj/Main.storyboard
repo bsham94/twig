@@ -59,6 +59,7 @@
                                             <constraints>
                                                 <constraint firstItem="EQB-ZB-8kM" firstAttribute="centerY" secondItem="Yi1-NB-kLG" secondAttribute="centerY" id="40j-ue-4Cy"/>
                                                 <constraint firstItem="iAI-TQ-eut" firstAttribute="centerY" secondItem="Yi1-NB-kLG" secondAttribute="centerY" id="HDS-nj-eob"/>
+                                                <constraint firstItem="FvC-g0-n2k" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iAI-TQ-eut" secondAttribute="trailing" constant="8" id="lrB-ed-LUK"/>
                                                 <constraint firstItem="FvC-g0-n2k" firstAttribute="centerY" secondItem="Yi1-NB-kLG" secondAttribute="centerY" id="oAa-oi-G09"/>
                                                 <constraint firstAttribute="trailing" secondItem="EQB-ZB-8kM" secondAttribute="trailing" constant="8" id="pC3-mp-ciX"/>
                                                 <constraint firstItem="EQB-ZB-8kM" firstAttribute="leading" secondItem="FvC-g0-n2k" secondAttribute="trailing" constant="8" id="pmj-So-HPr"/>
@@ -279,17 +280,17 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reuseIdentifier" id="7B2-0g-0Db" customClass="CustomCell" customModule="Twig" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="encyclopediaReuseIdentifier" id="pOo-su-TZy" customClass="EncyclopediaTableViewCell" customModule="Twig" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7B2-0g-0Db" id="Dy7-CN-LW7" customClass="CustomCell" customModule="Twig" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pOo-su-TZy" id="z34-RH-V3j">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljS-bL-beK">
-                                                    <rect key="frame" x="28" y="-0.5" width="42" height="44.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpE-LT-ME2">
+                                                    <rect key="frame" x="166" y="-0.5" width="42" height="44.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="5Hh-ew-TPY"/>
+                                                        <constraint firstAttribute="height" constant="44" id="B4Y-Ex-YJZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -297,16 +298,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ljS-bL-beK" firstAttribute="centerY" secondItem="Dy7-CN-LW7" secondAttribute="centerY" id="52n-ce-ENE"/>
-                                                <constraint firstItem="ljS-bL-beK" firstAttribute="leading" secondItem="Dy7-CN-LW7" secondAttribute="leadingMargin" constant="8" id="fgS-C0-8Mz"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ljS-bL-beK" secondAttribute="trailing" constant="8" id="mdP-36-HGb"/>
+                                                <constraint firstItem="dpE-LT-ME2" firstAttribute="centerX" secondItem="z34-RH-V3j" secondAttribute="centerX" id="g0e-Lj-bck"/>
+                                                <constraint firstItem="dpE-LT-ME2" firstAttribute="centerY" secondItem="z34-RH-V3j" secondAttribute="centerY" id="lvZ-tn-WhO"/>
                                             </constraints>
-                                            <connections>
-                                                <outlet property="cellText" destination="ljS-bL-beK" id="RLT-9u-9LE"/>
-                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellText" destination="ljS-bL-beK" id="XOt-Qa-2dd"/>
+                                            <outlet property="nameLabel" destination="dpE-LT-ME2" id="JaJ-N7-yoq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -675,7 +672,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="jRu-7c-hEs"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -706,7 +703,7 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="kMx-bU-CgP"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Sunlight requirements" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dEm-W7-HAO">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Sunlight requirements" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEm-W7-HAO">
                                                                 <rect key="frame" x="0.0" y="75" width="124.5" height="75"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
@@ -724,7 +721,7 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="aUL-eJ-Kok"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Watering requirements" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BST-VK-xeY">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Watering requirements" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BST-VK-xeY">
                                                                 <rect key="frame" x="0.0" y="75" width="125" height="75"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
@@ -743,7 +740,7 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="XC3-Pr-ZST"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Temperature requirements" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-Yc-JTL">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Temperature requirements" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-Yc-JTL">
                                                                 <rect key="frame" x="0.0" y="75" width="124.5" height="75"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
@@ -929,7 +926,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="e7f-X2-20a"/>
-        <segue reference="szU-9R-MGl"/>
+        <segue reference="4e1-Ms-cKE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Twig_Logo" width="420" height="298"/>
