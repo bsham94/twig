@@ -62,10 +62,10 @@ class PlantViewController: UIViewController {
     
     @IBAction func waterButtonTouched(_ sender: Any) {
         let plant = Plant.getPlant(plantName!)
-        if let water_date = plant?.water_date {
+        if (plant?.water_date) != nil {
             Plant.water(plantName!)
             let plant = Plant.getPlant(plantName!)
-            notificationLabel.text = getWaterNotification(waterDate: water_date)
+            notificationLabel.text = getWaterNotification(waterDate: (plant?.water_date)!)
             let interval = Plant.getTimeInterval(waterAmount: Int(plant!.water))
             let intervalAsDays = interval/24/60/60
             Alert.waterDateUpdatedAlert(self, daysUntilNextWater: Int(intervalAsDays))
