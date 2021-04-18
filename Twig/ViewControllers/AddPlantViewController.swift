@@ -57,8 +57,13 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
             return
         }
         
-        // Get all the values
         let name = nameTextField.text ?? ""
+        if Plant.existsWithName(name) {
+            Alert.errorAlert(self, message: "\(name) already exists.")
+            return
+        }
+        
+        // Get all the values
         let heat = Int(heatSlider.value * 10)
         let water = Int(waterSlider.value * 10)
         let sun = Int(sunSlider.value * 10)

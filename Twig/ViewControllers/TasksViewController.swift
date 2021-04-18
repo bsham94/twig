@@ -22,8 +22,11 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: NSFetchedResultsController Functions
     func initializeFetchedResultsController() {
         let request : NSFetchRequest<Plant> = Plant.fetchRequest()
-        let fetchSort = NSSortDescriptor(key: "name", ascending: true)
+        let fetchSort = NSSortDescriptor(key: "water_date", ascending: true)
         request.sortDescriptors = [fetchSort]
+        let currentDate = Date()
+        request.predicate = NSPredicate(format: "water_date <= %@", currentDate as NSDate)
+
         
         fetchedResultsController = NSFetchedResultsController(
             fetchRequest: request,
