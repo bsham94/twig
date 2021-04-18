@@ -15,7 +15,6 @@ class PlantViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var notificationLabel: UITextView!
     @IBOutlet weak var waterButton: UIButton!
-    @IBOutlet weak var quickAddButton: UIBarButtonItem!
     @IBOutlet weak var aboutTextView: UITextView!
     @IBOutlet weak var sunlightTextView: UITextView!
     @IBOutlet weak var waterTextView: UITextView!
@@ -33,10 +32,8 @@ class PlantViewController: UIViewController {
         sunlightTextView.text = mapRequirementsToText(requirement: "sunlight", value: Int(plant?.sun_light ?? 5))
         heatTextView.text = mapRequirementsToText(requirement: "warmth", value: Int(plant?.heat ?? 5))
         aboutTextView.text = plant?.plant_description
-        //imageView.image = UIImage(data: (plant?.imageData)!)
+        imageView.image = UIImage(data: (plant?.imageData)!)
         
-        // Setup quick add button to be a dropdown
-        quickAddButton.menu = UIMenu(title: "", children: quickAddMenuActions())
         
         // Setup notification label
         notificationLabel.layer.borderColor = UIColor.systemYellow.cgColor
@@ -48,13 +45,6 @@ class PlantViewController: UIViewController {
         waterButton.layer.cornerRadius = 5.0
 
     } // viewDidLoad
-    
-    private func quickAddMenuActions() -> [UIAction] {
-        return [
-            // Add plant menu action
-            UIAction(title: "Add Another", image: UIImage(systemName: "plus"), identifier: nil, discoverabilityTitle: nil, attributes: .init(), state: .off, handler: { _ in })
-        ]
-    } // quickAddMenuActions
     
     @IBAction func deletePlant(_ sender: Any) {
         Alert.deletePlantAndAlert(self, plantName: plantName!)

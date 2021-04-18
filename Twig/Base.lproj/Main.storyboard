@@ -429,17 +429,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Room" largeTitleDisplayMode="always" id="Q3o-LN-Csd">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="trash" id="6l5-ah-tAX">
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <connections>
-                                    <action selector="deleteRoom:" destination="Oyd-HX-kF7" id="RAy-Mg-oQZ"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="plus.circle.fill" catalog="system" id="BjS-w5-nSP">
-                                <color key="tintColor" red="0.30549466609999998" green="0.71405166389999997" blue="0.67451524730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="6l5-ah-tAX">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="deleteRoom:" destination="Oyd-HX-kF7" id="RAy-Mg-oQZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Efk-2m-AbX" id="OE4-Bf-mzs"/>
@@ -807,17 +802,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Plant" largeTitleDisplayMode="always" id="Uop-fB-5uv">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="trash" id="urr-2y-KEA">
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <connections>
-                                    <action selector="deletePlant:" destination="wKB-oD-bb9" id="IIR-W8-Kw8"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="plus.circle.fill" catalog="system" id="XcR-sH-99x">
-                                <color key="tintColor" name="TwigAccent"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="urr-2y-KEA">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="deletePlant:" destination="wKB-oD-bb9" id="IIR-W8-Kw8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
@@ -825,7 +815,6 @@
                         <outlet property="heatTextView" destination="NkO-Yc-JTL" id="hML-6N-eh3"/>
                         <outlet property="imageView" destination="Z00-Pw-AUa" id="L5c-a1-0aO"/>
                         <outlet property="notificationLabel" destination="DgI-AD-ix2" id="i6v-ro-y2h"/>
-                        <outlet property="quickAddButton" destination="XcR-sH-99x" id="tSP-bw-qpa"/>
                         <outlet property="sunlightTextView" destination="dEm-W7-HAO" id="80M-Zb-eKS"/>
                         <outlet property="waterButton" destination="NP4-7d-RUS" id="14m-VI-nbz"/>
                         <outlet property="waterTextView" destination="BST-VK-xeY" id="9fw-gy-Sz9"/>
