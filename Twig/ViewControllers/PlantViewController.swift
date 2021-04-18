@@ -32,15 +32,22 @@ class PlantViewController: UIViewController {
         sunlightTextView.text = mapRequirementsToText(requirement: "sunlight", value: Int(plant?.sun_light ?? 5))
         heatTextView.text = mapRequirementsToText(requirement: "warmth", value: Int(plant?.heat ?? 5))
         aboutTextView.text = plant?.plant_description
-        imageView.image = UIImage(data: (plant?.imageData)!)
+        if let imageData = plant?.imageData {
+            // If imagedata exists, load it
+            imageView.image = UIImage(data: imageData)
+        }
+        
         
         
         // Setup notification label
         notificationLabel.layer.borderColor = UIColor.systemYellow.cgColor
         notificationLabel.layer.borderWidth = 2
         // If we need to water today, alert us
-        notificationLabel.text = getWaterNotification(waterDate: (plant?.water_date)!)
-        
+        if let water_date = plant?.water_date {
+            notificationLabel.text = getWaterNotification(waterDate: water_date)
+        } else {
+            notificationLabel.text = "Couldn't load watering data. Try again later."
+        }
         // Setup water button
         waterButton.layer.cornerRadius = 5.0
 
