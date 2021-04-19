@@ -71,7 +71,7 @@ class AddPlantViewController: UIViewController, UIImagePickerControllerDelegate,
         let image = imageView.image!
         
         // Create plant
-        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun, plant_description: description, imageData: image.pngData()!)
+        Plant.create(name: name, room: destination, heat: heat, water: water, sun_light: sun, plant_description: description, imageData: image.jpegData(compressionQuality: 0)!)
         Alert.addedPlantAlert(self, plantName: name, roomName: destination)
     } // saveButtonTouched
     

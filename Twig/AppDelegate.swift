@@ -39,15 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // MARK: Database
     func initializeDB(){
-        // TODO: Remove hardcoded rooms
-        let image = UIImage(systemName: "questionmark.circle.fill")!
+        // Hardcoded rooms and plants
+        // For demonstration purposes
         _ = Room.create(name: "Bedroom")
-        Plant.create(name: "Aloe Vera", room: "Bedroom", heat: 10, water: 5, sun_light: 7,plant_description: "Green", imageData: image.pngData()!)
-        Plant.create(name: "Sunflower", room: "Bedroom", heat: 9, water: 3, sun_light: 2, plant_description: "Definitely not green", imageData: image.pngData()!)
+        let aloeImage = UIImage(named: "aloe_vera")!
+        Plant.create(name: "Aloe Vera", room: "Bedroom", heat: 10, water: 5, sun_light: 7,plant_description: "Green", imageData: aloeImage.jpegData(compressionQuality: 0)!)
+        let sunflowerImage = UIImage(named: "sunflower")!
+        Plant.create(name: "Sunflower", room: "Bedroom", heat: 9, water: 3, sun_light: 2, plant_description: "Definitely not green", imageData: sunflowerImage.jpegData(compressionQuality: 0)!)
         Plant.setWaterDateToToday("Sunflower")
         
         _ = Room.create(name: "Living Room")
-        Plant.create(name: "Jade Plant", room: "Living Room", heat: 4, water: 6, sun_light: 8, plant_description: "Might be green", imageData: image.pngData()!)
+        let jadeImage = UIImage(named: "jade_plant")!
+        Plant.create(name: "Jade Plant", room: "Living Room", heat: 4, water: 6, sun_light: 8, plant_description: "Might be green", imageData: jadeImage.jpegData(compressionQuality: 0)!)
     }
     // MARK: UISceneSession Lifecycle
 
