@@ -12,4 +12,4 @@ Twig is a houseplant management suite built using xCode for iOS devices. Using t
 * XCode Storyboards & Swift - iOS Application
 
 ### Building and Running
-* Clone the repository and open using **XCode Version 11**.
+* Clone the repository and open using **XCode Version 11** or higher.
