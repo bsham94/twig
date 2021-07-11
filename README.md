@@ -36,5 +36,5 @@ You may need to change the developer signature with your own trusted signature i
 
 ## Authors
 
-- [@zachmerrill](https://github.com/zachmerrill)
-- [@bsham94](https://github.com/bsham94)
+- [Zach Merrill](https://github.com/zachmerrill)
+- [Ben Shamas](https://github.com/bsham94)
